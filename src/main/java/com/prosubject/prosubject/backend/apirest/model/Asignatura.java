@@ -12,6 +12,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 
+
 @Entity
 @Table(name="ASIGNATURA")
 public class Asignatura implements Serializable{
