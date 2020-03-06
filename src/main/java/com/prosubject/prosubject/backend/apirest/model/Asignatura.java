@@ -1,4 +1,4 @@
-package com.prosubject.prosubject.backend.model;
+package com.prosubject.prosubject.backend.apirest.model;
 
 import java.io.Serializable;
 
@@ -13,9 +13,8 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import com.prosubject.prosubject.backend.model.enumerados.Curso;
-import com.prosubject.prosubject.backend.model.enumerados.Grado;
-import com.prosubject.prosubject.backend.model.enumerados.Universidad;
+import com.prosubject.prosubject.backend.apirest.enumerados.Curso;
+import com.prosubject.prosubject.backend.apirest.enumerados.Universidad;
 
 
 @Entity

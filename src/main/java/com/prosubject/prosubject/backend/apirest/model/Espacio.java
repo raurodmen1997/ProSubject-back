@@ -1,4 +1,4 @@
-package com.prosubject.prosubject.backend.model;
+package com.prosubject.prosubject.backend.apirest.model;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -21,20 +21,16 @@ public class Espacio implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="Id")
 	private long id;
 	
 	
-	@Column(name="alumnos")
 	@ManyToMany
 	private Collection<Persona> alumnos;
 	
 	@OneToOne
-	@Column(name="asignatura")
 	private Asignatura asignatura;
 	
 	@OneToOne
-	@Column(name="foro")
 	private Foro foro;
 
 	public long getId() {

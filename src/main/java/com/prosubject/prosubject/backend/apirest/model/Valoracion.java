@@ -1,4 +1,4 @@
-package com.prosubject.prosubject.backend.model;
+package com.prosubject.prosubject.backend.apirest.model;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -23,20 +23,16 @@ public class Valoracion implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ID")
 	private long id;
 	
-	@Column(name="COMENTARIO")
 	private String comentario;
 	
 	@NotNull
 	@Range(min = 0, max = 5)
-	@Column(name="VALORACION")
 	private Integer valoracion;
 
 	@Valid
 	@OneToMany
-	@Column(name="ALUMNOS")
 	private Collection<Persona>	alumnos;
 
 	public Collection<Persona> getAlumnos() {

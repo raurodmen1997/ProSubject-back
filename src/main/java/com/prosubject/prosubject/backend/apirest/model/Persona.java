@@ -1,4 +1,4 @@
-package com.prosubject.prosubject.backend.model;
+package com.prosubject.prosubject.backend.apirest.model;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -11,11 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import com.prosubject.prosubject.backend.model.enumerados.Grado;
-import com.prosubject.prosubject.backend.model.enumerados.Universidad;
+import com.prosubject.prosubject.backend.apirest.enumerados.Universidad;
 
 @Entity
 @Table(name = "persona")
