@@ -29,8 +29,7 @@ public class Asignatura implements Serializable{
 
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO, generator="native")
-	@GenericGenerator(name="native",strategy="native")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="ID")
 	private long id;
 	
@@ -43,11 +42,11 @@ public class Asignatura implements Serializable{
 	private Curso curso;
 	
 	@NotNull
-	@Column
+	@Column(name = "GRADO")
 	private Grado grado;
 	
 	@NotNull
-	@Column
+	@Column(name = "UNIVERSIDAD")
 	private Universidad universidad;
 
 	public String getNombre() {

@@ -10,11 +10,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import com.prosubject.prosubject.backend.model.enumerado.Grado;
-import com.prosubject.prosubject.backend.model.enumerado.Universidad;
+import com.prosubject.prosubject.backend.model.enumerados.Grado;
+import com.prosubject.prosubject.backend.model.enumerados.Universidad;
 
 @Entity
 @Table(name = "persona")
@@ -32,23 +33,23 @@ public class Persona implements Serializable {
 	@Column(name = "id")
 	private int id;
 	
-	@NotEmpty
+	@NotBlank
 	@Column(name = "nombre")
 	private String nombre;
 	
-	@NotEmpty
+	@NotBlank
 	@Column(name = "apellidos")
 	private String apellidos;
 	
-	@NotEmpty
+	@NotBlank
 	@Column(name = "dni")
 	private String dni;
 	
-	@NotEmpty
+	@NotBlank
 	@Column(name = "email")
 	private String email;
 	
-	@NotEmpty
+	@NotBlank
 	@Column(name = "telefono")
 	private String telefono;
 	
