@@ -1,8 +1,7 @@
-package com.prosubject.prosubject.backend.model;
+package com.prosubject.prosubject.backend.apirest.model;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,11 +10,6 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import org.hibernate.annotations.GenericGenerator;
-
-import com.prosubject.prosubject.backend.model.enumerados.Curso;
-import com.prosubject.prosubject.backend.model.enumerados.Grado;
-import com.prosubject.prosubject.backend.model.enumerados.Universidad;
 
 
 @Entity
@@ -25,29 +19,28 @@ public class Asignatura implements Serializable{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 3268504994644111092L;
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * 
+	 */
+	
 
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO, generator="native")
-	@GenericGenerator(name="native",strategy="native")
-	@Column(name="ID")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
 	@NotBlank
-	@Column(name="NOMBRE")
 	private String nombre;
 	
 	@NotNull
-	@Column(name="CURSO")
 	private Curso curso;
 	
 	@NotNull
-	@Column
 	private Grado grado;
 	
 	@NotNull
-	@Column
 	private Universidad universidad;
 
 	public String getNombre() {
