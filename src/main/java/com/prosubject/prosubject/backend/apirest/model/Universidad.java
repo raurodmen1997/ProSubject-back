@@ -2,7 +2,6 @@ package com.prosubject.prosubject.backend.apirest.model;
 
 import java.io.Serializable;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,7 +12,7 @@ import javax.validation.constraints.NotBlank;
 
 @Table(name="GRADO")
 @Entity
-public class Grado implements Serializable{
+public class Universidad implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +21,7 @@ public class Grado implements Serializable{
 	
 	@NotBlank
 	private String nombre;
-	
+
 	public long getId() {
 		return id;
 	}
@@ -38,8 +37,5 @@ public class Grado implements Serializable{
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
-	private static final long serialVersionUID = 1L;
 	
-
-}	
+}

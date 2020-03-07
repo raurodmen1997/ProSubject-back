@@ -30,4 +30,12 @@ public class Curso implements Serializable{
 	@Range(min=1,max=5)
 	private Integer nombre;
 
+	public Integer getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(Integer nombre) {
+		this.nombre = nombre;
+	}
+
 }
