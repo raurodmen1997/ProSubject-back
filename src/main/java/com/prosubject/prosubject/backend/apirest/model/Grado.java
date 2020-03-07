@@ -1,7 +1,7 @@
 package com.prosubject.prosubject.backend.apirest.model;
 
 import java.io.Serializable;
-import java.util.List;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

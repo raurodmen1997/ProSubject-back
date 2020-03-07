@@ -8,12 +8,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import com.prosubject.prosubject.backend.apirest.enumerados.Universidad;
 
 @Entity
 @Table(name = "persona")
@@ -28,35 +30,29 @@ public class Persona implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
 	private int id;
 	
 	@NotBlank
-	@Column(name = "nombre")
 	private String nombre;
 	
 	@NotBlank
-	@Column(name = "apellidos")
 	private String apellidos;
 	
 	@NotBlank
-	@Column(name = "dni")
 	private String dni;
 	
 	@NotBlank
-	@Column(name = "email")
 	private String email;
 	
 	@NotBlank
-	@Column(name = "telefono")
 	private String telefono;
 	
-	@NotNull
-	@Column(name = "grado")
+	@Valid
+	@OneToOne
 	private Grado grado;
 	
-	@NotNull
-	@Column(name = "universidad")
+	@Valid
+	@ManyToOne
 	private Universidad universidad;
 	
 	@OneToMany

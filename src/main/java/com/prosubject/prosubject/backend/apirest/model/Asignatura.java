@@ -1,15 +1,20 @@
 package com.prosubject.prosubject.backend.apirest.model;
 
 import java.io.Serializable;
-
+import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+
 
 
 @Entity
@@ -31,14 +36,17 @@ public class Asignatura implements Serializable{
 	@NotBlank
 	private String nombre;
 	
-	@NotNull
+	@Valid
+	@ManyToOne
 	private Curso curso;
 	
-	@NotNull
-	private Grado grado;
+	@Valid
+	@ManyToMany
+	private Collection<Grado> grado;
 	
-	@NotNull
-	private Universidad universidad;
+	@Valid
+	@ManyToMany
+	private Collection<Universidad> universidad;
 
 	public String getNombre() {
 		return nombre;
@@ -56,22 +64,31 @@ public class Asignatura implements Serializable{
 		this.curso = curso;
 	}
 
-	public Grado getGrado() {
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public Collection<Grado> getGrado() {
 		return grado;
 	}
 
-	public void setGrado(Grado grado) {
+	public void setGrado(Collection<Grado> grado) {
 		this.grado = grado;
 	}
 
-	public Universidad getUniversidad() {
+	public Collection<Universidad> getUniversidad() {
 		return universidad;
 	}
 
-	public void setUniversidad(Universidad universidad) {
+	public void setUniversidad(Collection<Universidad> universidad) {
 		this.universidad = universidad;
 	}
-	
+
+
 	
 	
 }

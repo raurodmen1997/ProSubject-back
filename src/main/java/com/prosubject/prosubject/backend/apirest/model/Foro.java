@@ -3,7 +3,6 @@ package com.prosubject.prosubject.backend.apirest.model;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,18 +19,27 @@ public class Foro implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="ID")
 	private long id;
 	
-	@Column(name="COMENTARIOS")
-	private List<String> comentarios;
-	
-	
-	public List<String> getComentarios() {
+	private String comentarios;
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getComentarios() {
 		return comentarios;
 	}
-	public void setComentarios(List<String> comentarios) {
+
+	public void setComentarios(String comentarios) {
 		this.comentarios = comentarios;
 	}
+
+
+
 	
 }
