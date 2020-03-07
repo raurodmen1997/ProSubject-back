@@ -26,6 +26,7 @@ public class Curso implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
+
 	@NotNull
 	@Range(min=1,max=5)
 	private Integer nombre;
@@ -36,6 +37,14 @@ public class Curso implements Serializable{
 
 	public void setNombre(Integer nombre) {
 		this.nombre = nombre;
+	}
+	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 }
