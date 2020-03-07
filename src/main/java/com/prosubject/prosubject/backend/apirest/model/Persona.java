@@ -1,5 +1,6 @@
 package com.prosubject.prosubject.backend.apirest.model;
 
+
 import java.io.Serializable;
 import java.util.Collection;
 
@@ -8,29 +9,30 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.Valid;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+
 
 
 @Entity
-@Table(name = "persona")
+@Table(name = "PERSONA")
 public class Persona implements Serializable {
-	public Persona() {
-		
-	}
-	/**
-	 * 
-	 */
+	
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
+	@Valid
+	@OneToOne
+	private UserAccount userAccount;
 	
 	@NotBlank
 	private String nombre;
@@ -42,22 +44,12 @@ public class Persona implements Serializable {
 	private String dni;
 	
 	@NotBlank
+	@Email
 	private String email;
 	
 	@NotBlank
 	private String telefono;
 	
-	@Valid
-	@OneToOne
-	private Grado grado;
-	
-	@Valid
-	@ManyToOne
-	private Universidad universidad;
-	
-	@OneToMany
-	@Column(name = "espacios")
-	private Collection<Espacio> espacios;
 
 
 
@@ -69,6 +61,18 @@ public class Persona implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+
+
+	public UserAccount getUserAccount() {
+		return userAccount;
+	}
+
+
+
+	public void setUserAccount(UserAccount userAccount) {
+		this.userAccount = userAccount;
 	}
 
 
@@ -133,28 +137,6 @@ public class Persona implements Serializable {
 
 
 
-	public Grado getGrado() {
-		return grado;
-	}
-
-
-
-	public void setGrado(Grado grado) {
-		this.grado = grado;
-	}
-
-
-
-	public Universidad getUniversidad() {
-		return universidad;
-	}
-
-
-
-	public void setUniversidad(Universidad universidad) {
-		this.universidad = universidad;
-	}
-
 
 
 	public static long getSerialversionuid() {
@@ -162,16 +144,5 @@ public class Persona implements Serializable {
 	}
 
 
-
-	public Collection<Espacio> getEspacios() {
-		return espacios;
-	}
-
-
-
-	public void setEspacios(Collection<Espacio> espacios) {
-		this.espacios = espacios;
-	}
-	
 
 }

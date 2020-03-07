@@ -8,8 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Espacio implements Serializable {
@@ -21,15 +23,26 @@ public class Espacio implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	
+	@Valid
 	@ManyToMany
-	private Collection<Persona> alumnos;
+	private Collection<Alumno> alumnos;
 	
+	@Valid
 	@OneToOne
 	private Asignatura asignatura;
 	
+	@Valid
 	@OneToOne
 	private Foro foro;
+	
+	@Valid
+	@ManyToOne
+	private Profesor profesor;
+	
+	@NotNull
+	private Double Precio;
+	
+	
 
 	public long getId() {
 		return id;
@@ -39,11 +52,13 @@ public class Espacio implements Serializable {
 		this.id = id;
 	}
 
-	public Collection<Persona> getAlumnos() {
+	
+
+	public Collection<Alumno> getAlumnos() {
 		return alumnos;
 	}
 
-	public void setAlumnos(Collection<Persona> alumnos) {
+	public void setAlumnos(Collection<Alumno> alumnos) {
 		this.alumnos = alumnos;
 	}
 
@@ -62,6 +77,26 @@ public class Espacio implements Serializable {
 	public void setForo(Foro foro) {
 		this.foro = foro;
 	}
+
+	public Profesor getProfesor() {
+		return profesor;
+	}
+
+	public void setProfesor(Profesor profesor) {
+		this.profesor = profesor;
+	}
+
+	public Double getPrecio() {
+		return Precio;
+	}
+
+	public void setPrecio(Double precio) {
+		Precio = precio;
+	}
+	
+	
+	
+	
 	
 	
 	

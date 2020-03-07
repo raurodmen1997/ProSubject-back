@@ -9,8 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
@@ -45,8 +43,8 @@ public class Asignatura implements Serializable{
 	private Collection<Grado> grado;
 	
 	@Valid
-	@ManyToMany
-	private Collection<Universidad> universidad;
+	@ManyToOne
+	private Universidad universidad;
 
 	public String getNombre() {
 		return nombre;
@@ -80,11 +78,11 @@ public class Asignatura implements Serializable{
 		this.grado = grado;
 	}
 
-	public Collection<Universidad> getUniversidad() {
+	public Universidad getUniversidad() {
 		return universidad;
 	}
 
-	public void setUniversidad(Collection<Universidad> universidad) {
+	public void setUniversidad(Universidad universidad) {
 		this.universidad = universidad;
 	}
 
