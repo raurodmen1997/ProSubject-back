@@ -23,7 +23,7 @@ public class PersonaController {
 	}
 	
 	@GetMapping("/id")
-	public Persona findOne(final long personaID){
+	public Persona findOne( long personaID){
 		return this.personaService.findOneById(personaID);
 	}
 }

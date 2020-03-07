@@ -1,4 +1,4 @@
-package com.prosubject.prosubject.backend.controller;
+package com.prosubject.prosubject.backend.apirest.controller;
 
 import java.util.List;
 

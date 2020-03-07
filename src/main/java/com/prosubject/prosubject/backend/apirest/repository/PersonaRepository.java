@@ -14,7 +14,7 @@ import com.prosubject.prosubject.backend.apirest.model.Persona;
 @Repository
 public interface PersonaRepository extends JpaRepository<Persona, Long> {
 
-	@Query("select p from persona were p.id=?1")
+	@Query("select p from Persona p where p.id=?1")
 	Persona findOneById(long id);
-	List<Persona> findAll();
+	
 }
