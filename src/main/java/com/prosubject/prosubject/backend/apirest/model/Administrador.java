@@ -11,9 +11,9 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.Valid;
 
-@Table(name="ALUMNO")
+@Table(name="ESTUDIANTE")
 @Entity
-public class Alumno extends Persona {
+public class Administrador extends Persona {
 
 	
 	private static final long serialVersionUID = 1L;
