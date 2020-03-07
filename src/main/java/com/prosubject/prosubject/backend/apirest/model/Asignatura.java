@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -35,15 +37,15 @@ public class Asignatura implements Serializable{
 	private String nombre;
 	
 	@Valid
-	@OneToOne
+	@ManyToOne
 	private Curso curso;
 	
 	@Valid
-	@OneToMany
+	@ManyToMany
 	private Collection<Grado> grado;
 	
 	@Valid
-	@OneToMany
+	@ManyToMany
 	private Collection<Universidad> universidad;
 
 	public String getNombre() {
