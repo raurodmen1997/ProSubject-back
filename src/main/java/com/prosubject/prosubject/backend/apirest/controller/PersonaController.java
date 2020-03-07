@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.prosubject.prosubject.backend.apirest.model.Persona;
-import com.prosubject.prosubject.backend.apirest.services.PersonaService;
+import com.prosubject.prosubject.backend.apirest.service.PersonaService;
 
 @RestController
 @RequestMapping("/persona")

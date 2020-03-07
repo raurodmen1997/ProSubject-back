@@ -1,4 +1,4 @@
-package com.prosubject.prosubject.backend.apirest.services;
+package com.prosubject.prosubject.backend.apirest.service;
 
 
 import java.util.List;
