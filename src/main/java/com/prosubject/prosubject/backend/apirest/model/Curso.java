@@ -28,14 +28,13 @@ public class Curso implements Serializable{
 	
 
 	@NotNull
-	@Range(min=1,max=5)
-	private Integer nombre;
+	private String nombre;
 
-	public Integer getNombre() {
+	public String getNombre() {
 		return nombre;
 	}
 
-	public void setNombre(Integer nombre) {
+	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 	
