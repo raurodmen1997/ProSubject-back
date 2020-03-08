@@ -8,28 +8,26 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.prosubject.prosubject.backend.apirest.model.Curso;
-import com.prosubject.prosubject.backend.apirest.service.CursoService;
+import com.prosubject.prosubject.backend.apirest.model.Profesor;
+import com.prosubject.prosubject.backend.apirest.service.ProfesorService;
 
 @RestController
 @RequestMapping("/api")
-public class CursoController {
+public class ProfesorController {
+
 	
 	@Autowired
-	private CursoService cursoService;
+	private ProfesorService profesorService;
 	
-	
-	@GetMapping("/cursos")
-	public List<Curso> findAll(){
-		return this.cursoService.findAll();
+	@GetMapping("/profesores")
+	public List<Profesor> findAll(){
+		return this.profesorService.findAll();
+		
 	}
 	
-	
-	@GetMapping("/cursos/{id}")
-	public Curso findOne(@PathVariable Long id){
-		return this.cursoService.findOne(id);
+	@GetMapping("/profesores/{id}")
+	public Profesor findOne(@PathVariable Long id){
+		return this.profesorService.findOne(id);
+		
 	}
-	
-	
-
 }

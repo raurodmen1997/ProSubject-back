@@ -8,28 +8,26 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.prosubject.prosubject.backend.apirest.model.Curso;
-import com.prosubject.prosubject.backend.apirest.service.CursoService;
+import com.prosubject.prosubject.backend.apirest.model.Asignatura;
+import com.prosubject.prosubject.backend.apirest.service.AsignaturaService;
 
 @RestController
 @RequestMapping("/api")
-public class CursoController {
+public class AsignaturaController {
+
 	
 	@Autowired
-	private CursoService cursoService;
+	private AsignaturaService asignaturaService;
 	
 	
-	@GetMapping("/cursos")
-	public List<Curso> findAll(){
-		return this.cursoService.findAll();
+	@GetMapping("/asignaturas")
+	public List<Asignatura> findAll(){
+		return this.asignaturaService.findAll();
 	}
 	
 	
-	@GetMapping("/cursos/{id}")
-	public Curso findOne(@PathVariable Long id){
-		return this.cursoService.findOne(id);
+	@GetMapping("/asignaturas/{id}")
+	public Asignatura findOne(@PathVariable Long id){
+		return this.asignaturaService.findOne(id);
 	}
-	
-	
-
 }

@@ -21,9 +21,6 @@ import javax.validation.constraints.NotNull;
 @Entity(name = "administradores")
 public class Administrador implements Serializable {
 	
-	public Administrador() {
-		super();
-	}
 
 	
 	private static final long serialVersionUID = 1L;

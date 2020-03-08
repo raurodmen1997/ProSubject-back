@@ -17,22 +17,18 @@ public class EspacioService {
 	@Autowired
 	private AlumnoService alumnoService;
 	
-	public Espacio create() {
-		final Espacio e = new Espacio();
-		return e;
-	}
 	
 	public List<Espacio> findAll() {
 		return this.espacioRepository.findAll();
 	}
 	
 	public Espacio findOne(final long espacioId){
-		return this.espacioRepository.findOneById(espacioId);
+		return this.espacioRepository.findById(espacioId).orElse(null);
 	}
 	
 	public Espacio save(final Espacio e) {
-		Espacio saved = this.espacioRepository.save(e);
-		return saved;
+		return this.espacioRepository.save(e);
+		
 		
 	}
 	//Metodo para inscribir un alumno en un espacio

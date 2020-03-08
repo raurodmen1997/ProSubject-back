@@ -2,12 +2,10 @@ package com.prosubject.prosubject.backend.apirest.controller;
 
 import java.util.List;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,20 +13,20 @@ import com.prosubject.prosubject.backend.apirest.model.Espacio;
 import com.prosubject.prosubject.backend.apirest.service.EspacioService;
 
 @RestController
-@RequestMapping("/espacio")
-public class espacioController{
+@RequestMapping("/api")
+public class EspacioController{
 	
 	@Autowired
 	private EspacioService espacioService;
 	
-	@GetMapping("/lista")
+	@GetMapping("/espacios")
 	public List<Espacio> findAll(){
 		return this.espacioService.findAll();
 	}
 	
-	@GetMapping("/id")
-	public Espacio findOne(long espacioId) {
-		return this.espacioService.findOne(espacioId);
+	@GetMapping("/espacios/{id}")
+	public Espacio findOne(@PathVariable Long id) {
+		return this.espacioService.findOne(id);
 	}
 	
 	@PostMapping(path="/anadirAlumno")

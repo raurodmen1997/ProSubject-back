@@ -6,8 +6,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Range;
 
 
 @Entity(name = "grados")
@@ -21,7 +26,32 @@ public class Grado implements Serializable{
 	@NotNull
 	private String nombre;
 	
+	@Valid
+	@ManyToOne(optional=false)
+	@JoinColumn(name = "facultad_id")
+	private Facultad facultad;
 	
+	@Range(min=1, max=5)
+	@NotNull
+	private Long numerocursos;
+	
+	
+	public Long getNumerocursos() {
+		return numerocursos;
+	}
+
+	public void setNumerocursos(Long numerocursos) {
+		this.numerocursos = numerocursos;
+	}
+
+	public Facultad getFacultad() {
+		return facultad;
+	}
+
+	public void setFacultad(Facultad facultad) {
+		this.facultad = facultad;
+	}
+
 	public Long getId() {
 		return id;
 	}

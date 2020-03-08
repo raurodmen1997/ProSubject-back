@@ -1,6 +1,6 @@
 package com.prosubject.prosubject.backend.apirest.service;
 
-import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,16 +18,15 @@ public class UniversidadService {
 		return u;
 	}
 	
-	public Collection<Universidad> findAll() {
+	public List<Universidad> findAll() {
 		return this.universidadRepository.findAll();
 	}
 	
 	public Universidad findOne(final long universidadId) {
-		return this.universidadRepository.findOneById(universidadId);
+		return this.universidadRepository.findById(universidadId).orElse(null);
 	}
 	
 	public Universidad save(final Universidad u) {
-		Universidad saved = this.universidadRepository.save(u);
-		return saved;
+		return this.universidadRepository.save(u);
 	}
 }

@@ -29,6 +29,8 @@ public class Curso implements Serializable{
 	@NotBlank
 	private String nombre;
 
+	
+	
 	public String getNombre() {
 		return nombre;
 	}

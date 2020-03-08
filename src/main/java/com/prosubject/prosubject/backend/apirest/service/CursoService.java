@@ -24,15 +24,12 @@ public class CursoService {
 	}
 	
 	public Curso findOne(final long cursoId) {
-		return this.cursoRepository.findById(cursoId).get();
+		return this.cursoRepository.findById(cursoId).orElse(null);
 	}
 	
 
 	public Curso save(final Curso c) {
-		
-	   Curso saved = this.cursoRepository.save(c);
-
-		return saved;
+		return this.cursoRepository.save(c);
 	}
 	
 }

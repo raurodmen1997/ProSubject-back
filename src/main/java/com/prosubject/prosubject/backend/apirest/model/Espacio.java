@@ -33,6 +33,7 @@ public class Espacio implements Serializable {
 	
 	@Valid
 	@OneToOne(optional = false)
+	@JoinColumn(name = "asignatura_id")
 	private Asignatura asignatura;
 	
 	
@@ -51,6 +52,10 @@ public class Espacio implements Serializable {
 	@NotNull
 	@Min(0)
 	private Double precio;
+	
+	@NotNull
+	@Min(0)
+	private Long capacidad;
 	
 	
 
@@ -103,6 +108,15 @@ public class Espacio implements Serializable {
 	public void setPrecio(Double prec) {
 		precio = prec;
 	}
+
+	public Long getCapacidad() {
+		return capacidad;
+	}
+
+	public void setCapacidad(Long capacidad) {
+		this.capacidad = capacidad;
+	}
+	
 	
 	
 	
