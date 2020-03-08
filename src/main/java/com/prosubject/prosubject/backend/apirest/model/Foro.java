@@ -2,16 +2,14 @@ package com.prosubject.prosubject.backend.apirest.model;
 
 import java.io.Serializable;
 
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 
-@Table(name="FORO")
-@Entity
+
+@Entity(name = "foros")
 public class Foro implements Serializable{
 
 	
@@ -19,11 +17,11 @@ public class Foro implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 	
 	private String comentarios;
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 

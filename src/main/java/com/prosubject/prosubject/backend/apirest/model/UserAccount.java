@@ -7,13 +7,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 
 
-@Entity
-@Table(name="USERACCOUNT")
+@Entity(name = "useraccounts")
 public class UserAccount implements Serializable {
 
 	/**
@@ -23,37 +22,42 @@ public class UserAccount implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Long id;
 	
 	@NotBlank
+	@NotNull
 	@Column(unique = true)
-	private String Usurname;
+	private String username;
 	
 	@NotBlank
-	private String Password;
+	@NotNull
+	private String password;
 
-	public int getId() {
+	
+	
+	
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
 	public String getUsurname() {
-		return Usurname;
+		return username;
 	}
 
-	public void setUsurname(String usurname) {
-		Usurname = usurname;
+	public void setUsurname(String user) {
+		username = user;
 	}
 
 	public String getPassword() {
-		return Password;
+		return password;
 	}
 
-	public void setPassword(String password) {
-		Password = password;
+	public void setPassword(String pass) {
+		password = pass;
 	}
 	
 	

@@ -7,16 +7,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 
 
-@Entity
-@Table(name="ASIGNATURA")
+@Entity(name = "asignaturas")
 public class Asignatura implements Serializable{
 
 	/**
@@ -29,13 +29,15 @@ public class Asignatura implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 	
 	@NotBlank
+	@NotNull
 	private String nombre;
 	
 	@Valid
-	@ManyToOne
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "curso_id")
 	private Curso curso;
 	
 	@Valid
@@ -43,9 +45,12 @@ public class Asignatura implements Serializable{
 	private Collection<Grado> grado;
 	
 	@Valid
-	@ManyToOne
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "universidad_id")
 	private Universidad universidad;
 
+	
+	
 	public String getNombre() {
 		return nombre;
 	}
@@ -62,11 +67,11 @@ public class Asignatura implements Serializable{
 		this.curso = curso;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

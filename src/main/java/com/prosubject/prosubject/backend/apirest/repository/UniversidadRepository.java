@@ -9,6 +9,6 @@ import com.prosubject.prosubject.backend.apirest.model.Universidad;
 @Repository
 public interface UniversidadRepository extends JpaRepository<Universidad, Long>{
 
-	@Query("select u from Universidad u where u.id=?1")
+	@Query("select u from universidades u where u.id=?1")
 	Universidad findOneById(long id);
 }

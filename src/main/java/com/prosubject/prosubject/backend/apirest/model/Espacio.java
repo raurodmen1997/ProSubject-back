@@ -3,17 +3,20 @@ package com.prosubject.prosubject.backend.apirest.model;
 import java.io.Serializable;
 import java.util.Collection;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.validation.Valid;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
-@Entity
+@Entity(name = "espacios")
 public class Espacio implements Serializable {
 
 
@@ -21,34 +24,41 @@ public class Espacio implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 	
 	@Valid
 	@ManyToMany
 	private Collection<Alumno> alumnos;
 	
+	
 	@Valid
-	@OneToOne
+	@OneToOne(optional = false)
 	private Asignatura asignatura;
 	
+	
 	@Valid
-	@OneToOne
+	@OneToOne(optional = false, cascade = CascadeType.ALL)
+	@JoinColumn(name = "foro_id")
 	private Foro foro;
 	
+	
 	@Valid
-	@ManyToOne
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "profesor_id")
 	private Profesor profesor;
 	
+	
 	@NotNull
-	private Double Precio;
+	@Min(0)
+	private Double precio;
 	
 	
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -87,11 +97,11 @@ public class Espacio implements Serializable {
 	}
 
 	public Double getPrecio() {
-		return Precio;
+		return precio;
 	}
 
-	public void setPrecio(Double precio) {
-		Precio = precio;
+	public void setPrecio(Double prec) {
+		precio = prec;
 	}
 	
 	

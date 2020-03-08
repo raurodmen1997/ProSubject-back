@@ -2,35 +2,37 @@ package com.prosubject.prosubject.backend.apirest.model;
 
 import java.io.Serializable;
 import java.util.Collection;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Range;
 
-@Table(name="VALORACION")
-@Entity
+
+@Entity(name = "valoraciones")
 public class Valoracion implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 	
 	private String comentario;
 	
 	@NotNull
 	@Range(min = 0, max = 5)
-	private Integer valoracion;
+	private Integer puntuacion;
 
 	@Valid
 	@OneToMany
+	@JoinColumn(name = "alumno_id")
 	private Collection<Persona>	alumnos;
 
 	public Collection<Persona> getAlumnos() {
@@ -41,11 +43,11 @@ public class Valoracion implements Serializable {
 		this.alumnos = alumnos;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -56,14 +58,16 @@ public class Valoracion implements Serializable {
 	public void setComentario(String comentario) {
 		this.comentario = comentario;
 	}
-	
-	public Integer getValoracion() {
-		return valoracion;
+
+	public Integer getPuntuacion() {
+		return puntuacion;
 	}
 
-	public void setValoracion(Integer valoracion) {
-		this.valoracion = valoracion;
+	public void setPuntuacion(Integer puntuacion) {
+		this.puntuacion = puntuacion;
 	}
+	
+	
 	
 	
 

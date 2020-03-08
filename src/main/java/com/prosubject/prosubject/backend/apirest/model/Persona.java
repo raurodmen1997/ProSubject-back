@@ -1,78 +1,95 @@
+
 package com.prosubject.prosubject.backend.apirest.model;
 
 
 import java.io.Serializable;
-import java.util.Collection;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-import javax.persistence.OneToMany;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.TableGenerator;
 import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 
 
-@Entity
-@Table(name = "PERSONA")
+@Entity(name = "personas")	
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Persona implements Serializable {
 	
 
 	private static final long serialVersionUID = 1L;
 
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+    @GeneratedValue (strategy=GenerationType.TABLE , generator= "idsGenerator" )
+    @TableGenerator (name= "idsGenerator" , table= "IdsGenerator" , 
+           pkColumnName= "id" , pkColumnValue= "personas" , valueColumnName= "personasIds" )
+	private Long id;
+	
 	
 	@Valid
-	@OneToOne
-	private UserAccount userAccount;
+	@NotNull
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "useraccount_id")
+	private UserAccount useraccount;
 	
 	@NotBlank
+	@NotNull
 	private String nombre;
 	
 	@NotBlank
-	private String apellidos;
+	@NotNull
+	private String apellido1;
 	
 	@NotBlank
+	@NotNull
+	private String apellido2;
+	
+	@NotBlank
+	@NotNull
 	private String dni;
 	
 	@NotBlank
+	@NotNull
 	@Email
+	@Column(unique = true)
 	private String email;
 	
-	@NotBlank
+	
 	private String telefono;
 	
 
 
-
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
 
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
 
 
 	public UserAccount getUserAccount() {
-		return userAccount;
+		return useraccount;
 	}
 
 
 
 	public void setUserAccount(UserAccount userAccount) {
-		this.userAccount = userAccount;
+		this.useraccount = userAccount;
 	}
 
 
@@ -89,14 +106,28 @@ public class Persona implements Serializable {
 
 
 
-	public String getApellidos() {
-		return apellidos;
+
+
+	public String getApellido1() {
+		return apellido1;
 	}
 
 
 
-	public void setApellidos(String apellidos) {
-		this.apellidos = apellidos;
+	public void setApellido1(String apellido1) {
+		this.apellido1 = apellido1;
+	}
+
+
+
+	public String getApellido2() {
+		return apellido2;
+	}
+
+
+
+	public void setApellido2(String apellido2) {
+		this.apellido2 = apellido2;
 	}
 
 
@@ -138,10 +169,6 @@ public class Persona implements Serializable {
 
 
 
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
 
 
 

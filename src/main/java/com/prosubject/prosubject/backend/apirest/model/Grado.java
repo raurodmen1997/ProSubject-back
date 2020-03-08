@@ -2,32 +2,31 @@ package com.prosubject.prosubject.backend.apirest.model;
 
 import java.io.Serializable;
 
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
-@Table(name="GRADO")
-@Entity
+
+@Entity(name = "grados")
 public class Grado implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="ID")
-	private long id;
+	private Long id;
 	
 	@NotBlank
+	@NotNull
 	private String nombre;
 	
-	public long getId() {
+	
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

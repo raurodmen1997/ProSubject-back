@@ -9,7 +9,7 @@ import com.prosubject.prosubject.backend.apirest.model.Curso;
 @Repository
 public interface CursoRepository extends JpaRepository<Curso, Long>  {
 	
-	@Query("select c from Curso c where c.id=?1")
+	@Query("select c from cursos c where c.id=?1")
 	Curso findOneById(long id);
 	
 	

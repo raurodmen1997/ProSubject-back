@@ -9,6 +9,6 @@ import com.prosubject.prosubject.backend.apirest.model.Espacio;
 @Repository
 public interface EspacioRepository extends JpaRepository<Espacio, Long> {
 	
-	@Query("select e from Espacio e where e.id=?1")
+	@Query("select e from espacios e where e.id=?1")
 	Espacio findOneById(long id);
 }
