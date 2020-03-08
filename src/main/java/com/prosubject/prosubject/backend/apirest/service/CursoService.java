@@ -24,7 +24,7 @@ public class CursoService {
 	}
 	
 	public Curso findOne(final long cursoId) {
-		return this.cursoRepository.findOneById(cursoId);
+		return this.cursoRepository.findById(cursoId).get();
 	}
 	
 
