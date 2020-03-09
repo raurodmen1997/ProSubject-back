@@ -43,7 +43,6 @@ public class ForoController {
 			
 		}catch(Exception ex){
 			
-		
 		}
 		
 		return f;
