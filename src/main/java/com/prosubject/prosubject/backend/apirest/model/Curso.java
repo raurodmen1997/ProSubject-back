@@ -8,13 +8,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import org.hibernate.validator.constraints.Range;
 
-@Entity
-@Table(name="CURSO")
+@Entity(name = "cursos")
 public class Curso implements Serializable{
 
 	/**
@@ -24,18 +22,29 @@ public class Curso implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 	
-	@NotNull
-	@Range(min=1,max=5)
-	private Integer nombre;
 
-	public Integer getNombre() {
+	@NotNull
+	@NotBlank
+	private String nombre;
+
+	
+	
+	public String getNombre() {
 		return nombre;
 	}
 
-	public void setNombre(Integer nombre) {
+	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 }
