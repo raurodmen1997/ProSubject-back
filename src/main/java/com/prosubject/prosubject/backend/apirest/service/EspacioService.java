@@ -33,6 +33,8 @@ public class EspacioService {
 	
 	public Espacio save(final Espacio e) {
 		if(e.getId()==null) {
+			Foro f = e.getForo();
+			f.setTitulo("Foro "+e.getAsignatura().getNombre());
 			this.foroService.save(e.getForo());
 		}
 		Assert.isTrue(e.getCapacidad()>=e.getAlumnos().size());

@@ -42,6 +42,7 @@ public class EspacioController{
 	public Espacio crearEspacio(@RequestBody Espacio espacio ) {
 		Espacio e = new Espacio();
 		try {
+			
 			e = this.espacioService.save(espacio);
 			
 		}catch(Exception ex){
