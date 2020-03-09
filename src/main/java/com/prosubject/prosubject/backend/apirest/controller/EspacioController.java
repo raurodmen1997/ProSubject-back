@@ -15,7 +15,7 @@ import com.prosubject.prosubject.backend.apirest.service.EspacioService;
 @RestController
 @RequestMapping("/api")
 
-public class espacioController{
+public class EspacioController{
 
 	
 	@Autowired
