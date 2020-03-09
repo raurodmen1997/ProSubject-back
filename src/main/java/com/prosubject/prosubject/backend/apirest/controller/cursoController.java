@@ -3,6 +3,7 @@ package com.prosubject.prosubject.backend.apirest.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +15,7 @@ import com.prosubject.prosubject.backend.apirest.service.CursoService;
 @RestController
 @RequestMapping("/api")
 public class cursoController {
+
 	
 	@Autowired
 	private CursoService cursoService;
