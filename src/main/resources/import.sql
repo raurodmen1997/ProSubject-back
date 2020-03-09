@@ -6,9 +6,15 @@ INSERT INTO `useraccounts` (`password`,`username`) VALUES ('alum4','alum4');
 INSERT INTO `useraccounts` (`password`,`username`) VALUES ('prof1','prof1');
 INSERT INTO `useraccounts` (`password`,`username`) VALUES ('prof2','prof2');
 INSERT INTO `useraccounts` (`password`,`username`) VALUES ('prof3','prof3');
+INSERT INTO `useraccounts` (`password`,`username`) VALUES ('admin2','admin2');
+INSERT INTO `useraccounts` (`password`,`username`) VALUES ('admin3','admin3');
 
 
 INSERT INTO `administradores` (`apellido1`, `apellido2`, `dni`, `email`, `nombre`, `telefono`, `useraccount_id`) VALUES ('Romero', 'Caceres', '4754620Y', 'antromcac@alum.us.es', 'Antonio', '603552741', '1');
+
+INSERT INTO `administradores` (`apellido1`, `apellido2`, `dni`, `email`, `nombre`, `telefono`, `useraccount_id`) VALUES ('PruebaDNi', 'PruebaDNi', '475620Y', 'antromcac1@alum.us.es', 'Antonio', '603552741', '10');
+
+INSERT INTO `administradores` (`apellido1`, `apellido2`, `dni`, `email`, `nombre`, `telefono`, `useraccount_id`) VALUES ('PruebaDNi', 'PruebaDNi', '4756201-Y', 'antromcac2@alum.us.es', 'Antonio', '603552741', '9');
 
 
 INSERT INTO `universidades` (`nombre`) VALUES ('Universidad de Sevilla');

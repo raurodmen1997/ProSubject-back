@@ -16,6 +16,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 
 @Entity(name = "administradores")
@@ -49,6 +50,7 @@ public class Administrador implements Serializable {
 	
 	@NotBlank
 	@NotNull
+	@Pattern(regexp = "^(\\d{8})?([-])?([A-Z])$")
 	private String dni;
 	
 	@NotBlank
@@ -57,16 +59,13 @@ public class Administrador implements Serializable {
 	@Column(unique = true)
 	private String email;
 	
-	
+	@Pattern(regexp="^([+][1-9]\\d{0,3})?([ ])?([(][1-9]\\d{0,4}[)])?([ ])?\\d{6,10}$")
 	private String telefono;
 	
-
 
 	public Long getId() {
 		return id;
 	}
-
-
 
 	public void setId(Long id) {
 		this.id = id;
