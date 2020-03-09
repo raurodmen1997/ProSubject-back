@@ -2,7 +2,14 @@ package com.prosubject.prosubject.backend.apirest.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.ParameterizedTypeReference;
+
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,8 +37,16 @@ public class EspacioController{
 	}
 	
 	@PostMapping(path="/anadirAlumno")
-	public void añadirAlumno( long espacioId,long alumnoId  ) {
-		this.espacioService.añadirAlumno(alumnoId,espacioId);
+	public Espacio añadirAlumno(@Valid long espacioId,long alumnoId ) {
+		Espacio espacio = new Espacio();
+		try {
+			espacio=this.espacioService.añadirAlumno(alumnoId,espacioId);
+			return espacio;
+		}catch(Exception e){
+			espacio=this.espacioService.findOne(espacioId);
+			return espacio;
+		}
+		
 		
 		
 	}

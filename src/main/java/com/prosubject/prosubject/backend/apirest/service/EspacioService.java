@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 
 import com.prosubject.prosubject.backend.apirest.model.Alumno;
 import com.prosubject.prosubject.backend.apirest.model.Espacio;
@@ -36,9 +37,12 @@ public class EspacioService {
 		Alumno a = this.alumnoService.findOne(alumnoId);
 		Espacio e = this.findOne(espacioId);
 		Collection<Alumno> alumnos = e.getAlumnos();
+		Assert.isTrue(!(alumnos.contains(a)));
+		Assert.isTrue(e.getCapacidad()>e.getAlumnos().size());
 		alumnos.add(a);
 		e.setAlumnos(alumnos);
 		this.save(e);
+		
 		return e;
 		
 	}
