@@ -27,6 +27,11 @@ public class EspacioService {
 		return this.espacioRepository.findAll();
 	}
 	
+	public List<Espacio> findDisponibles(String universidad, 
+			String facultad, String curso, String asignatura){
+		return this.espacioRepository.findDisponibles(universidad, facultad, curso, asignatura);
+	}
+	
 	public Espacio findOne(final long espacioId){
 		return this.espacioRepository.findById(espacioId).orElse(null);
 	}

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.prosubject.prosubject.backend.apirest.model.Espacio;
@@ -30,6 +31,14 @@ public class EspacioController{
 	@GetMapping("/espacios")
 	public List<Espacio> findAll(){
 		return this.espacioService.findAll();
+	}
+	
+	@GetMapping("/espaciosDisponibles")
+	public List<Espacio> findDisponibles(@RequestParam(value="universidad") String universidad, 
+			@RequestParam(value="facultad") String facultad,
+			@RequestParam(value="curso") String curso,
+			@RequestParam(value="asignatura") String asignatura){
+		return this.espacioService.findDisponibles(universidad, facultad, curso, asignatura);
 	}
 	
 	@GetMapping("/espacios/{id}")
