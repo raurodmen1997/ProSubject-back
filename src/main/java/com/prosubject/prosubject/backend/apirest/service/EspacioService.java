@@ -9,12 +9,16 @@ import org.springframework.util.Assert;
 
 import com.prosubject.prosubject.backend.apirest.model.Alumno;
 import com.prosubject.prosubject.backend.apirest.model.Espacio;
+import com.prosubject.prosubject.backend.apirest.model.Foro;
 import com.prosubject.prosubject.backend.apirest.repository.EspacioRepository;
+import com.prosubject.prosubject.backend.apirest.repository.ForoRepository;
 
 @Service
 public class EspacioService {
 	@Autowired
 	private EspacioRepository espacioRepository;
+	@Autowired
+	private ForoService foroService;
 	@Autowired
 	private AlumnoService alumnoService;
 	
@@ -28,6 +32,10 @@ public class EspacioService {
 	}
 	
 	public Espacio save(final Espacio e) {
+		if(e.getId()==null) {
+			this.foroService.save(e.getForo());
+		}
+		Assert.isTrue(e.getCapacidad()>=e.getAlumnos().size());
 		return this.espacioRepository.save(e);
 		
 		
@@ -46,6 +54,7 @@ public class EspacioService {
 		return e;
 		
 	}
+	
 	
 	
 }
