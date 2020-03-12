@@ -18,6 +18,13 @@ public interface EspacioRepository extends JpaRepository<Espacio, Long> {
 			+ "where uni.nombre=?1 AND facul.nombre=?2 AND gra.nombre=?3 AND cur.nombre=?4 AND asig.nombre=?5")
 	List<Espacio> findDisponibles(String universidad, String facultad, String grado, String curso, String asignatura);
 	
+
+
+	@Query("select e from espacios e where e.profesor.id=?1")
+	List<Espacio> espaciosDeUnProfesor(Long id);
 	
+	
+	@Query("select e from espacios e join e.alumnos alum where alum.id=?1")
+	List<Espacio> espaciosDeUnAlumno(Long id);
 	
 }

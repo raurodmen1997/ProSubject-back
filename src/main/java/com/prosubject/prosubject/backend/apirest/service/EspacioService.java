@@ -61,6 +61,16 @@ public class EspacioService {
 		return e;
 		
 	}
+
+        //Listado de espacios creados por un profesor
+	public List<Espacio> espaciosDeUnProfesor(Long id){
+		return this.espacioRepository.espaciosDeUnProfesor(id);
+	}
+	
+	//Listado de espacios en los que estas inscrito un alumno
+		public List<Espacio> espaciosDeUnAlumno(Long id){
+			return this.espacioRepository.espaciosDeUnAlumno(id);
+	}
 	
 	
 	

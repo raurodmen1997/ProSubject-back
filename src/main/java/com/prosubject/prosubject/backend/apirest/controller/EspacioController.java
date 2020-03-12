@@ -80,5 +80,15 @@ public class EspacioController{
 		
 	}
 
+        @GetMapping("/espaciosProfesor/{id}")
+	public List<Espacio> espaciosDeUnProfesor(@PathVariable Long id) {
+		return this.espacioService.espaciosDeUnProfesor(id);
+	}
+	
+	@GetMapping("/espaciosAlumno/{id}")
+	public List<Espacio> espaciosDeUnAlumno(@PathVariable Long id) {
+		return this.espacioService.espaciosDeUnAlumno(id);
+	}
+
 
 }
