@@ -22,6 +22,10 @@ public class AsignaturaService {
 		return this.asignaturaRepository.findById(asignaturaId).orElse(null);
 	}
 	
+	public List<Asignatura> findListaAsignaturas(String universidad, 
+			String facultad, String grado, String curso){
+		return this.asignaturaRepository.findListaAsignaturas(universidad, facultad, grado, curso);
+	}
 
 	public Asignatura save(final Asignatura a) {
 		return this.asignaturaRepository.save(a);
