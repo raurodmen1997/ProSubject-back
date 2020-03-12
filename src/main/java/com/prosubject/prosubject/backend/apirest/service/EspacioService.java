@@ -10,6 +10,7 @@ import org.springframework.util.Assert;
 import com.prosubject.prosubject.backend.apirest.model.Alumno;
 import com.prosubject.prosubject.backend.apirest.model.Espacio;
 import com.prosubject.prosubject.backend.apirest.model.Foro;
+import com.prosubject.prosubject.backend.apirest.model.Grado;
 import com.prosubject.prosubject.backend.apirest.repository.EspacioRepository;
 import com.prosubject.prosubject.backend.apirest.repository.ForoRepository;
 
@@ -28,8 +29,8 @@ public class EspacioService {
 	}
 	
 	public List<Espacio> findDisponibles(String universidad, 
-			String facultad, String grado, String curso, String asignatura){
-		return this.espacioRepository.findDisponibles(universidad, facultad, grado,  curso, asignatura);
+			String facultad, String curso, String asignatura){
+		return this.espacioRepository.findDisponibles(universidad, facultad, curso, asignatura);
 	}
 	
 	public Espacio findOne(final long espacioId){
@@ -61,6 +62,16 @@ public class EspacioService {
 		return e;
 		
 	}
+	
+	//Listado de espacios creados por un profesor
+	public List<Espacio> espaciosDeUnProfesor(Long id){
+		return this.espacioRepository.espaciosDeUnProfesor(id);
+	}
+	
+	//Listado de espacios en los que estas inscrito un alumno
+		public List<Espacio> espaciosDeUnAlumno(Long id){
+			return this.espacioRepository.espaciosDeUnAlumno(id);
+		}
 	
 	
 	

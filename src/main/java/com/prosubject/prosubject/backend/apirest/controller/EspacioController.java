@@ -34,13 +34,12 @@ public class EspacioController{
 		return this.espacioService.findAll();
 	}
 	
-	@GetMapping("/espacios/espaciosDisponibles")
-	public List<Espacio> findDisponibles(@RequestParam String universidad, 
-			@RequestParam String facultad,
-			@RequestParam String grado,
-			@RequestParam String curso,
-			@RequestParam String asignatura){
-		return this.espacioService.findDisponibles(universidad, facultad, grado, curso, asignatura);
+	@GetMapping("/espaciosDisponibles")
+	public List<Espacio> findDisponibles(@RequestParam(value="universidad") String universidad, 
+			@RequestParam(value="facultad") String facultad,
+			@RequestParam(value="curso") String curso,
+			@RequestParam(value="asignatura") String asignatura){
+		return this.espacioService.findDisponibles(universidad, facultad, curso, asignatura);
 	}
 		
 	@GetMapping("/espacios/{id}")
@@ -78,6 +77,16 @@ public class EspacioController{
 		
 		
 		
+	}
+	
+	@GetMapping("/espaciosProfesor/{id}")
+	public List<Espacio> espaciosDeUnProfesor(@PathVariable Long id) {
+		return this.espacioService.espaciosDeUnProfesor(id);
+	}
+	
+	@GetMapping("/espaciosAlumno/{id}")
+	public List<Espacio> espaciosDeUnAlumno(@PathVariable Long id) {
+		return this.espacioService.espaciosDeUnAlumno(id);
 	}
 
 
