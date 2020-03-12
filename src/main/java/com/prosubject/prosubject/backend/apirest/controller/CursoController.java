@@ -14,7 +14,7 @@ import com.prosubject.prosubject.backend.apirest.service.CursoService;
 
 @RestController
 @RequestMapping("/api")
-public class cursoController {
+public class CursoController {
 
 	
 	@Autowired

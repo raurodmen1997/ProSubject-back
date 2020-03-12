@@ -27,4 +27,8 @@ public class ForoService {
 	public Foro save(final Foro c) { 
 		return this.foroRepository.save(c);	
 	}
+	
+	public void delete(final Foro c) { 
+		 this.foroRepository.delete(c);	
+	}
 }

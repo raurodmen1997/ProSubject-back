@@ -5,15 +5,20 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 
 import com.prosubject.prosubject.backend.apirest.model.Alumno;
 import com.prosubject.prosubject.backend.apirest.model.Espacio;
+import com.prosubject.prosubject.backend.apirest.model.Foro;
 import com.prosubject.prosubject.backend.apirest.repository.EspacioRepository;
+import com.prosubject.prosubject.backend.apirest.repository.ForoRepository;
 
 @Service
 public class EspacioService {
 	@Autowired
 	private EspacioRepository espacioRepository;
+	@Autowired
+	private ForoService foroService;
 	@Autowired
 	private AlumnoService alumnoService;
 	
@@ -22,11 +27,22 @@ public class EspacioService {
 		return this.espacioRepository.findAll();
 	}
 	
+	public List<Espacio> findDisponibles(String universidad, 
+			String facultad, String curso, String asignatura){
+		return this.espacioRepository.findDisponibles(universidad, facultad, curso, asignatura);
+	}
+	
 	public Espacio findOne(final long espacioId){
 		return this.espacioRepository.findById(espacioId).orElse(null);
 	}
 	
 	public Espacio save(final Espacio e) {
+		if(e.getId()==null) {
+			Foro f = e.getForo();
+			f.setTitulo("Foro "+e.getAsignatura().getNombre());
+			this.foroService.save(e.getForo());
+		}
+		Assert.isTrue(e.getCapacidad()>=e.getAlumnos().size());
 		return this.espacioRepository.save(e);
 		
 		
@@ -36,12 +52,16 @@ public class EspacioService {
 		Alumno a = this.alumnoService.findOne(alumnoId);
 		Espacio e = this.findOne(espacioId);
 		Collection<Alumno> alumnos = e.getAlumnos();
+		Assert.isTrue(!(alumnos.contains(a)));
+		Assert.isTrue(e.getCapacidad()>e.getAlumnos().size());
 		alumnos.add(a);
 		e.setAlumnos(alumnos);
 		this.save(e);
+		
 		return e;
 		
 	}
+	
 	
 	
 }
