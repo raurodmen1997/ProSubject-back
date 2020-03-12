@@ -28,8 +28,8 @@ public class EspacioService {
 	}
 	
 	public List<Espacio> findDisponibles(String universidad, 
-			String facultad, String curso, String asignatura){
-		return this.espacioRepository.findDisponibles(universidad, facultad, curso, asignatura);
+			String facultad, String grado, String curso, String asignatura){
+		return this.espacioRepository.findDisponibles(universidad, facultad, grado,  curso, asignatura);
 	}
 	
 	public Espacio findOne(final long espacioId){

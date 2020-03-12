@@ -32,6 +32,8 @@ INSERT INTO `grados` (`nombre`, `facultad_id`, `numerocursos`) VALUES ('Ingenier
 INSERT INTO `grados` (`nombre`, `facultad_id`, `numerocursos`) VALUES ('Ingeniería de Computadores', '1', '4');
 INSERT INTO `grados` (`nombre`, `facultad_id`, `numerocursos`) VALUES ('Tecnología informática', '1', '4');
 INSERT INTO `grados` (`nombre`, `facultad_id`, `numerocursos`) VALUES ('Ingeniería de la salud', '1', '4');
+INSERT INTO `grados` (`nombre`, `facultad_id`, `numerocursos`) VALUES ('Historia del Arte contemporaneo', '4', '4');
+INSERT INTO `grados` (`nombre`, `facultad_id`, `numerocursos`) VALUES ('Historia del Arte antiguo', '4', '4');
 
 
 INSERT INTO `cursos` (`nombre`) VALUES ('PRIMERO');
