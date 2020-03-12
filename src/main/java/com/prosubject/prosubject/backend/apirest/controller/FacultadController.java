@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.prosubject.prosubject.backend.apirest.model.Facultad;
@@ -32,8 +33,8 @@ public class FacultadController {
 		
 	}
 	
-	@GetMapping("/busquedaFacultades")
-	public List<Facultad> findFacuUni(String universidad){
+	@GetMapping("/facultades/busquedaFacultades")
+	public List<Facultad> findFacuUni(@RequestParam String universidad){
 		return this.facultadService.findFacuUni(universidad);
 	}
 
