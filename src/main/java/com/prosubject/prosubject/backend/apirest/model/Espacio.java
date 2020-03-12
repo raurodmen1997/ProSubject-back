@@ -2,7 +2,6 @@ package com.prosubject.prosubject.backend.apirest.model;
 
 import java.io.Serializable;
 import java.util.Collection;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -57,6 +56,9 @@ public class Espacio implements Serializable {
 	@Min(0)
 	private Long capacidad;
 	
+	@Valid
+	@ManyToMany
+	private Collection<Horario> horarios;
 	
 
 	public Long getId() {
@@ -67,7 +69,6 @@ public class Espacio implements Serializable {
 		this.id = id;
 	}
 
-	
 
 	public Collection<Alumno> getAlumnos() {
 		return alumnos;
@@ -115,6 +116,14 @@ public class Espacio implements Serializable {
 
 	public void setCapacidad(Long capacidad) {
 		this.capacidad = capacidad;
+	}
+
+	public Collection<Horario> getHorarios() {
+		return horarios;
+	}
+
+	public void setHorarios(Collection<Horario> horarios) {
+		this.horarios = horarios;
 	}
 	
 	

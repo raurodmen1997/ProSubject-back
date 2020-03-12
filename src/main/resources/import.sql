@@ -83,5 +83,19 @@ INSERT INTO `espacios_alumnos` (`espacios_id`, `alumnos_id`) VALUES ('1', '1');
 INSERT INTO `espacios_alumnos` (`espacios_id`, `alumnos_id`) VALUES ('1', '2');
 INSERT INTO `espacios_alumnos` (`espacios_id`, `alumnos_id`) VALUES ('2', '3');
 
+INSERT INTO `horario` (`fecha_inicio`,`fecha_fin`) VALUES ('2020-03-12','2020-03-14');
+
+INSERT INTO `horario` (`fecha_inicio`,`fecha_fin`) VALUES ('2020-03-13','2020-03-14');
+
+INSERT INTO `horario` (`fecha_inicio`,`fecha_fin`) VALUES ('2020-03-13','2020-03-17');
+
+INSERT INTO `espacios_horarios` (`espacios_id`,`horarios_id`) VALUES ('1','1');
+
+INSERT INTO `espacios_horarios` (`espacios_id`,`horarios_id`) VALUES ('1','2');
+
+INSERT INTO `espacios_horarios` (`espacios_id`,`horarios_id`) VALUES ('3','3');
+
+INSERT INTO `espacios_horarios` (`espacios_id`,`horarios_id`) VALUES ('2','3');
+
 
 
