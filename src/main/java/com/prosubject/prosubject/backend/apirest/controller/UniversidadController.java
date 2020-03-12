@@ -15,7 +15,7 @@ import com.prosubject.prosubject.backend.apirest.service.UniversidadService;
 
 @RestController
 @RequestMapping("/api")
-
+@CrossOrigin(origins = {"http://localhost:4200"})
 public class UniversidadController {
 
 	
