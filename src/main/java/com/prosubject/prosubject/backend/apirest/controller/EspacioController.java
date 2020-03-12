@@ -80,7 +80,7 @@ public class EspacioController{
 		
 	}
 
-        @GetMapping("/espaciosProfesor/{id}")
+    @GetMapping("/espaciosProfesor/{id}")
 	public List<Espacio> espaciosDeUnProfesor(@PathVariable Long id) {
 		return this.espacioService.espaciosDeUnProfesor(id);
 	}
