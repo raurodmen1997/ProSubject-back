@@ -31,6 +31,11 @@ public class FacultadController {
 		return this.facultadService.findOne(id);
 		
 	}
+	
+	@GetMapping("/busquedaFacultades")
+	public List<Facultad> findFacuUni(String universidad){
+		return this.facultadService.findFacuUni(universidad);
+	}
 
 	
 }

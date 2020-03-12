@@ -22,6 +22,9 @@ public class FacultadService {
 		return this.facultadRepository.findById(facultadId).orElse(null);
 	}
 
+	public List<Facultad> findFacuUni(String universidad) {
+		return this.facultadRepository.findFacuUni(universidad);
+	}
 	
 	public Facultad save(final Facultad c) { 
 		return this.facultadRepository.save(c);	

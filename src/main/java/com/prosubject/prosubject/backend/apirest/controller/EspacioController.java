@@ -40,7 +40,7 @@ public class EspacioController{
 			@RequestParam(value="asignatura") String asignatura){
 		return this.espacioService.findDisponibles(universidad, facultad, curso, asignatura);
 	}
-	
+		
 	@GetMapping("/espacios/{id}")
 	public Espacio findOne(@PathVariable Long id) {
 		return this.espacioService.findOne(id);
