@@ -2,17 +2,12 @@ package com.prosubject.prosubject.backend.apirest.model;
 
 import java.io.Serializable;
 import java.util.Date;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 @Entity(name = "horario")
@@ -32,8 +27,6 @@ private static final long serialVersionUID = 1L;
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date fechaFin;
-
-
 
 
 	public Date getFechaInicio() {
