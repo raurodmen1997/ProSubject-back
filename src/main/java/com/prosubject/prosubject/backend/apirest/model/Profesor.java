@@ -53,7 +53,7 @@ public class Profesor implements Serializable {
 	
 	@NotBlank
 	@NotNull
-	@Pattern(regexp = "^(\\d{8})([A-Z])$",message = "Debe tener 8 números y 1 letra")
+	@Pattern(regexp = "^(\\d{8})([A-Z])$",message = "Debe tener 8 numeros y 1 letra")
 	@Column(unique = true)
 	private String dni;
 	
@@ -63,7 +63,7 @@ public class Profesor implements Serializable {
 	@Column(unique = true)
 	private String email;
 	
-	@Pattern(regexp="^([+][1-9]\\d{0,3})?([ ])?([(][1-9]\\d{0,4}[)])?([ ])?\\d{6,10}|^$", message = "Debe introducir un numéro de teléfono correcto")
+	@Pattern(regexp="^([+][1-9]\\d{0,3})?([ ])?([(][1-9]\\d{0,4}[)])?([ ])?\\d{6,10}|^$",message = "Debe introducir un numero de telefono correcto")
 	private String telefono;
 	
 

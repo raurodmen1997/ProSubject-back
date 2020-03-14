@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,7 +20,7 @@ import com.prosubject.prosubject.backend.apirest.service.ForoService;
 
 @RestController
 @RequestMapping("/api")
-
+@CrossOrigin(origins = {"http://localhost:4200"})
 public class EspacioController{
 
 	
@@ -76,6 +77,16 @@ public class EspacioController{
 		
 		
 		
+	}
+	
+	@GetMapping("/espaciosProfesor/{id}")
+	public List<Espacio> espaciosDeUnProfesor(@PathVariable Long id) {
+		return this.espacioService.espaciosDeUnProfesor(id);
+	}
+	
+	@GetMapping("/espaciosAlumno/{id}")
+	public List<Espacio> espaciosDeUnAlumno(@PathVariable Long id) {
+		return this.espacioService.espaciosDeUnAlumno(id);
 	}
 
 

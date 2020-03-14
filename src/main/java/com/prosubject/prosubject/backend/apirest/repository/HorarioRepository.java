@@ -6,5 +6,9 @@ import com.prosubject.prosubject.backend.apirest.model.Horario;
 
 @Repository
 public interface HorarioRepository extends JpaRepository<Horario, Long>  {
+	
+	
+	
+	
 
 }

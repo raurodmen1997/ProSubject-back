@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.prosubject.prosubject.backend.apirest.model.Asignatura;
@@ -31,5 +32,13 @@ public class AsignaturaController {
 	@GetMapping("/asignaturas/{id}")
 	public Asignatura findOne(@PathVariable Long id){
 		return this.asignaturaService.findOne(id);
+	}
+	
+	@GetMapping("/asignaturas/busquedaAsignaturas")
+	public List<Asignatura> findListaAsignatura(@RequestParam String universidad, 
+			@RequestParam String facultad,
+			@RequestParam String grado,
+			@RequestParam String curso){
+		return this.asignaturaService.findListaAsignaturas(universidad, facultad, grado, curso);
 	}
 }

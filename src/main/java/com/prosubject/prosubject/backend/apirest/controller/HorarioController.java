@@ -31,7 +31,7 @@ public class HorarioController{
 	}
 	
 	@PostMapping("/horarios")
-	public Horario crearHorario(@RequestBody Horario horario ) {
+	public Horario crearHorario(@RequestBody Horario horario ) throws Exception {
 		horario = horarioService.save(horario);
 		return horario;
 	}

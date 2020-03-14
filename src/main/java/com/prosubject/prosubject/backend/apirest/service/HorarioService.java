@@ -1,4 +1,5 @@
 package com.prosubject.prosubject.backend.apirest.service;
+import java.util.Date;
 import java.util.List;
 
 
@@ -29,12 +30,28 @@ public class HorarioService {
 		return this.horarioRepository.findById(horarioId).get();
 	}
 	
-
-	public Horario save(final Horario a) {
+	private boolean checkHoraInicioValid(Horario horario) throws Exception {
+		Date hoy = new Date();
+		if ( !horario.getFechaInicio().after(hoy) && !horario.getFechaInicio().before(horario.getFechaFin())) {
+			throw new Exception("La fecha de inicio debe ser posterior a hoy ");
+		}
+		return true;
+	}
+	
+	private boolean checkHoraFinValid(Horario horario) throws Exception {
 		
-	   Horario saved = this.horarioRepository.save(a);
+		if ( (!horario.getFechaFin().after(horario.getFechaInicio()))) {
+			throw new Exception("La fecha de inicio debe ser posterior a la fecha de inicio");
+		}
+		return true;
+	}
 
-		return saved;
+	public Horario save(Horario a) throws Exception{
+		if(checkHoraInicioValid(a)&& checkHoraFinValid(a)) {
+			a = this.horarioRepository.save(a);
+		}
+		
+		return a;
 	}
 
 	

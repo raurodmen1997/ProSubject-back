@@ -14,6 +14,7 @@ import com.prosubject.prosubject.backend.apirest.service.CursoService;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins = {"http://localhost:4200"})
 public class CursoController {
 
 	

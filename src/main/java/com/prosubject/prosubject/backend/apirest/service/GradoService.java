@@ -22,7 +22,9 @@ public class GradoService{
 		return res;
 	}
 
-
+	public List<Grado> findGradoFacu(String universidad, String facultad){
+		return this.gradoRepository.findGradoFacu(universidad, facultad);
+	}
 	
 	public List<Grado> findAll() {
 		return this.gradoRepository.findAll();
