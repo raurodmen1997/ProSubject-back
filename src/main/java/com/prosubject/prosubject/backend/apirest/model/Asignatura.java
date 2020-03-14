@@ -42,12 +42,14 @@ public class Asignatura implements Serializable{
 	
 	@Valid
 	@ManyToMany
-	private Collection<Grado> grado;
+	private Collection<Grado> grados;
 	
+	/*
 	@Valid
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "universidad_id")
 	private Universidad universidad;
+	*/
 
 	
 	
@@ -75,14 +77,15 @@ public class Asignatura implements Serializable{
 		this.id = id;
 	}
 
-	public Collection<Grado> getGrado() {
-		return grado;
+	public Collection<Grado> getGrados() {
+		return grados;
 	}
 
-	public void setGrado(Collection<Grado> grado) {
-		this.grado = grado;
+	public void setGrados(Collection<Grado> grados) {
+		this.grados = grados;
 	}
 
+	/*
 	public Universidad getUniversidad() {
 		return universidad;
 	}
@@ -91,6 +94,7 @@ public class Asignatura implements Serializable{
 		this.universidad = universidad;
 	}
 
+	 */
 
 	
 	

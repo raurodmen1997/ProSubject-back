@@ -22,23 +22,21 @@ public class GradoService{
 		return res;
 	}
 
-
+	public List<Grado> findGradoFacu(String universidad, String facultad){
+		return this.gradoRepository.findGradoFacu(universidad, facultad);
+	}
 	
 	public List<Grado> findAll() {
 		return this.gradoRepository.findAll();
 	}
-	public Grado findOne(final long gradoId) {
-		return this.gradoRepository.findOnebyId(gradoId);
+	
+	public Grado findOne(final Long gradoId) {
+		return this.gradoRepository.findById(gradoId).orElse(null);
 	}
 
 	
 	public Grado save(final Grado c) { 
-		
-		Grado saved = this.gradoRepository.save(c);
-		
-	return saved;
-		
-		
+		return this.gradoRepository.save(c);	
 	}
 
 }

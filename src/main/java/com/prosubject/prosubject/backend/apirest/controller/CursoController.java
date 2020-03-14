@@ -3,7 +3,9 @@ package com.prosubject.prosubject.backend.apirest.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,22 +13,29 @@ import com.prosubject.prosubject.backend.apirest.model.Curso;
 import com.prosubject.prosubject.backend.apirest.service.CursoService;
 
 @RestController
+<<<<<<< HEAD:src/main/java/com/prosubject/prosubject/backend/apirest/controller/CursoController.java
 @RequestMapping("/curso")
 public class CursoController {
+=======
+@RequestMapping("/api")
+@CrossOrigin(origins = {"http://localhost:4200"})
+public class CursoController {
+
+>>>>>>> a7607416cc91cbacd68263836099ee5737ab867c:src/main/java/com/prosubject/prosubject/backend/apirest/controller/cursoController.java
 	
 	@Autowired
 	private CursoService cursoService;
 	
 	
-	@GetMapping("/lista")
+	@GetMapping("/cursos")
 	public List<Curso> findAll(){
-	return this.cursoService.findAll();
+		return this.cursoService.findAll();
 	}
 	
 	
-	@GetMapping("/id")
-	public Curso findOne(long cursoId){
-	return this.cursoService.findOne(cursoId);
+	@GetMapping("/cursos/{id}")
+	public Curso findOne(@PathVariable Long id){
+		return this.cursoService.findOne(id);
 	}
 	
 	
