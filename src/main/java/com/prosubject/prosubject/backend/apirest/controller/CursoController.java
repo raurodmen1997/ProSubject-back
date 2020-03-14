@@ -13,7 +13,7 @@ import com.prosubject.prosubject.backend.apirest.model.Curso;
 import com.prosubject.prosubject.backend.apirest.service.CursoService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/cursos")
 @CrossOrigin(origins = {"http://localhost:4200"})
 public class CursoController {
 
@@ -22,13 +22,13 @@ public class CursoController {
 	private CursoService cursoService;
 	
 	
-	@GetMapping("/cursos")
+	@GetMapping("")
 	public List<Curso> findAll(){
 		return this.cursoService.findAll();
 	}
 	
 	
-	@GetMapping("/cursos/{id}")
+	@GetMapping("/{id}")
 	public Curso findOne(@PathVariable Long id){
 		return this.cursoService.findOne(id);
 	}

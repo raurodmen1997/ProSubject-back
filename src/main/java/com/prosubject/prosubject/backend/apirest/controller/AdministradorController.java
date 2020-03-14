@@ -15,24 +15,24 @@ import com.prosubject.prosubject.backend.apirest.model.Administrador;
 import com.prosubject.prosubject.backend.apirest.service.AdministradorService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/administradores")
 @CrossOrigin(origins = {"http://localhost:4200"})
 public class AdministradorController{
 	
 	@Autowired
 	private AdministradorService administradorService;
 	
-	@GetMapping("/administradores")
+	@GetMapping("")
 	public List<Administrador> findAll(){
 		return this.administradorService.findAll();
 	}
 	
-	@GetMapping("/administradores/{id}")
+	@GetMapping("/{id}")
 	public Administrador findOne(@PathVariable Long id) {
 		return this.administradorService.findOne(id);
 	}
 
-	@PostMapping("/administradores")
+	@PostMapping("")
 	public Administrador crearAdministrador(@RequestBody Administrador administrador ) {
 		administrador = administradorService.save(administrador);
 		return administrador;

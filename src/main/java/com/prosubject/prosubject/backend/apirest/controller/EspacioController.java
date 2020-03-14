@@ -19,7 +19,7 @@ import com.prosubject.prosubject.backend.apirest.service.EspacioService;
 import com.prosubject.prosubject.backend.apirest.service.ForoService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/espacios")
 @CrossOrigin(origins = {"http://localhost:4200"})
 public class EspacioController{
 
@@ -29,7 +29,7 @@ public class EspacioController{
 	@Autowired
 	private ForoService foroService;
 	
-	@GetMapping("/espacios")
+	@GetMapping("")
 	public List<Espacio> findAll(){
 		return this.espacioService.findAll();
 	}
@@ -42,13 +42,13 @@ public class EspacioController{
 		return this.espacioService.findDisponibles(universidad, facultad, curso, asignatura);
 	}
 		
-	@GetMapping("/espacios/{id}")
+	@GetMapping("/{id}")
 	public Espacio findOne(@PathVariable Long id) {
 		return this.espacioService.findOne(id);
 	}
 	
 	
-	@PostMapping("/espacios")
+	@PostMapping("")
 	public Espacio crearEspacio(@RequestBody Espacio espacio ) {
 		Espacio e = new Espacio();
 		try {

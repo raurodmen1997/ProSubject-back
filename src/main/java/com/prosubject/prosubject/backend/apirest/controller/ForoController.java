@@ -11,31 +11,30 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.prosubject.prosubject.backend.apirest.model.Espacio;
 import com.prosubject.prosubject.backend.apirest.model.Foro;
 import com.prosubject.prosubject.backend.apirest.service.ForoService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/foros")
 @CrossOrigin(origins = {"http://localhost:4200"})
 public class ForoController {
 
 	@Autowired
 	private ForoService foroService;
 	
-	@GetMapping("/foros")
+	@GetMapping("")
 	public List<Foro> findAll(){
 		return this.foroService.findAll();
 		
 	}
 	
-	@GetMapping("/foros/{id}")
+	@GetMapping("/{id}")
 	public Foro findOne(@PathVariable Long id){
 		return this.foroService.findOne(id);
 		
 	}
 	
-	@PostMapping("/foros")
+	@PostMapping("")
 	public Foro crearEspacio(@RequestBody Foro foro ) {
 		Foro f = new Foro();
 		try {

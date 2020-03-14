@@ -14,7 +14,7 @@ import com.prosubject.prosubject.backend.apirest.model.Asignatura;
 import com.prosubject.prosubject.backend.apirest.service.AsignaturaService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/asignaturas")
 @CrossOrigin(origins = {"http://localhost:4200"})
 public class AsignaturaController {
 
@@ -23,18 +23,18 @@ public class AsignaturaController {
 	private AsignaturaService asignaturaService;
 	
 	
-	@GetMapping("/asignaturas")
+	@GetMapping("")
 	public List<Asignatura> findAll(){
 		return this.asignaturaService.findAll();
 	}
 	
 	
-	@GetMapping("/asignaturas/{id}")
+	@GetMapping("/{id}")
 	public Asignatura findOne(@PathVariable Long id){
 		return this.asignaturaService.findOne(id);
 	}
 	
-	@GetMapping("/asignaturas/busquedaAsignaturas")
+	@GetMapping("/busquedaAsignaturas")
 	public List<Asignatura> findListaAsignatura(@RequestParam String universidad, 
 			@RequestParam String facultad,
 			@RequestParam String grado,

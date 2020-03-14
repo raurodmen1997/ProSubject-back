@@ -14,26 +14,26 @@ import com.prosubject.prosubject.backend.apirest.model.Facultad;
 import com.prosubject.prosubject.backend.apirest.service.FacultadService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/facultades")
 @CrossOrigin(origins = {"http://localhost:4200"})
 public class FacultadController {
 
 	@Autowired
 	private FacultadService facultadService;
 	
-	@GetMapping("/facultades")
+	@GetMapping("")
 	public List<Facultad> findAll(){
 		return this.facultadService.findAll();
 		
 	}
 	
-	@GetMapping("/facultades/{id}")
+	@GetMapping("/{id}")
 	public Facultad findOne(@PathVariable Long id){
 		return this.facultadService.findOne(id);
 		
 	}
 	
-	@GetMapping("/facultades/busquedaFacultades")
+	@GetMapping("/busquedaFacultades")
 	public List<Facultad> findFacuUni(@RequestParam String universidad){
 		return this.facultadService.findFacuUni(universidad);
 	}
