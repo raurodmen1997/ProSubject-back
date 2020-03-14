@@ -31,6 +31,9 @@ private static final long serialVersionUID = 1L;
 	@Temporal(TemporalType.TIMESTAMP)
 	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
 	private Date fechaFin;
+	
+	@NotNull
+	private DiaSemana dia;
 
 
 	public Date getFechaInicio() {
@@ -48,6 +51,14 @@ private static final long serialVersionUID = 1L;
 
 	public void setFechaFin(Date fechaFin) {
 		this.fechaFin = fechaFin;
+	}
+
+	public DiaSemana getDia() {
+		return dia;
+	}
+
+	public void setDia(DiaSemana dia) {
+		this.dia = dia;
 	}
 
 
