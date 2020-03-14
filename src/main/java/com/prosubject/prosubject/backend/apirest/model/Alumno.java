@@ -16,6 +16,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 @Entity(name = "alumnos")
 public class Alumno implements Serializable {
@@ -48,6 +49,8 @@ public class Alumno implements Serializable {
 	
 	@NotBlank
 	@NotNull
+	@Pattern(regexp = "^(\\d{8})([A-Z])$",message = "Debe tener 8 numeros y 1 letra")
+	@Column(unique = true)
 	private String dni;
 	
 	@NotBlank
@@ -56,7 +59,7 @@ public class Alumno implements Serializable {
 	@Column(unique = true)
 	private String email;
 	
-	
+	@Pattern(regexp="^([+][1-9]\\d{0,3})?([ ])?([(][1-9]\\d{0,4}[)])?([ ])?\\d{6,10}|^$",message = "Debe introducir un numero de telefono correcto")
 	private String telefono;
 	
 
