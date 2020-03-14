@@ -25,7 +25,6 @@ public class Administrador implements Serializable {
 
 	
 	private static final long serialVersionUID = 1L;
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -51,7 +50,7 @@ public class Administrador implements Serializable {
 	
 	@NotBlank
 	@NotNull
-	@Pattern(regexp = "^(\\d{8})([A-Z])$",message = "Debe tener 8 números y 1 letra")
+	@Pattern(regexp = "^(\\d{8})?([-])?([A-Z])$")
 	private String dni;
 	
 	@NotBlank
@@ -60,7 +59,7 @@ public class Administrador implements Serializable {
 	@Column(unique = true)
 	private String email;
 	
-	@Pattern(regexp="^([+][1-9]\\d{0,3})?([ ])?([(][1-9]\\d{0,4}[)])?([ ])?\\d{6,10}|^$",message = "Debe introducir un numéro de teléfono correcto")
+	@Pattern(regexp="^([+][1-9]\\d{0,3})?([ ])?([(][1-9]\\d{0,4}[)])?([ ])?\\d{6,10}$")
 	private String telefono;
 	
 

@@ -5,7 +5,6 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
-
 @Entity
 @Table(name = "FILES")
 public class DBFile {
@@ -20,9 +19,7 @@ public class DBFile {
 
     @Lob
     private byte[] data;
-    
 
-   
     public DBFile() {
 
     }
@@ -31,9 +28,7 @@ public class DBFile {
         this.fileName = fileName;
         this.fileType = fileType;
         this.data = data;
- 
     }
-
 
 	public String getId() {
 		return id;
