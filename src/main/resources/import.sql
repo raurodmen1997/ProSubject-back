@@ -1,3 +1,14 @@
+INSERT INTO `user` (`active`,`password`,`roles`,`user_name`) VALUES (0b1,'admin','ADMIN','admin');
+INSERT INTO `user` (`active`,`password`,`roles`,`user_name`) VALUES (0b1,'alum1','USER','alum1');
+INSERT INTO `user` (`active`,`password`,`roles`,`user_name`) VALUES (0b1,'alum2','USER','alum2');
+INSERT INTO `user` (`active`,`password`,`roles`,`user_name`) VALUES (0b1,'alum3','USER','alum3');
+INSERT INTO `user` (`active`,`password`,`roles`,`user_name`) VALUES (0b1,'alum4','USER','alum4');
+INSERT INTO `user` (`active`,`password`,`roles`,`user_name`) VALUES (0b1,'prof1','USER','prof1');
+INSERT INTO `user` (`active`,`password`,`roles`,`user_name`) VALUES (0b1,'prof2','USER','prof2');
+INSERT INTO `user` (`active`,`password`,`roles`,`user_name`) VALUES (0b1,'prof3','USER','prof3');
+INSERT INTO `user` (`active`,`password`,`roles`,`user_name`) VALUES (0b1,'admin2','ADMIN','admin2');
+INSERT INTO `user` (`active`,`password`,`roles`,`user_name`) VALUES (0b1,'admin3','ADMIN','admin3');
+
 INSERT INTO `useraccounts` (`password`,`username`) VALUES ('admin','admin');
 INSERT INTO `useraccounts` (`password`,`username`) VALUES ('alum1','alum1');
 INSERT INTO `useraccounts` (`password`,`username`) VALUES ('alum2','alum2');
@@ -82,6 +93,20 @@ INSERT INTO `espacios` (`asignatura_id`, `foro_id`, `profesor_id`, `precio`, `ca
 INSERT INTO `espacios_alumnos` (`espacios_id`, `alumnos_id`) VALUES ('1', '1');
 INSERT INTO `espacios_alumnos` (`espacios_id`, `alumnos_id`) VALUES ('1', '2');
 INSERT INTO `espacios_alumnos` (`espacios_id`, `alumnos_id`) VALUES ('2', '3');
+
+INSERT INTO `horario` (`fecha_inicio`,`fecha_fin`) VALUES ('2020-03-12','2020-03-14');
+
+INSERT INTO `horario` (`fecha_inicio`,`fecha_fin`) VALUES ('2020-03-13','2020-03-14');
+
+INSERT INTO `horario` (`fecha_inicio`,`fecha_fin`) VALUES ('2020-03-13','2020-03-17');
+
+INSERT INTO `espacios_horarios` (`espacios_id`,`horarios_id`) VALUES ('1','1');
+
+INSERT INTO `espacios_horarios` (`espacios_id`,`horarios_id`) VALUES ('1','2');
+
+INSERT INTO `espacios_horarios` (`espacios_id`,`horarios_id`) VALUES ('3','3');
+
+INSERT INTO `espacios_horarios` (`espacios_id`,`horarios_id`) VALUES ('2','3');
 
 
 
