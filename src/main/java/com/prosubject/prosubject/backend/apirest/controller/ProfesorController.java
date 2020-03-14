@@ -13,7 +13,7 @@ import com.prosubject.prosubject.backend.apirest.model.Profesor;
 import com.prosubject.prosubject.backend.apirest.service.ProfesorService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/profesores")
 @CrossOrigin(origins = {"http://localhost:4200"})
 public class ProfesorController {
 
@@ -21,13 +21,13 @@ public class ProfesorController {
 	@Autowired
 	private ProfesorService profesorService;
 	
-	@GetMapping("/profesores")
+	@GetMapping("")
 	public List<Profesor> findAll(){
 		return this.profesorService.findAll();
 		
 	}
 	
-	@GetMapping("/profesores/{id}")
+	@GetMapping("/{id}")
 	public Profesor findOne(@PathVariable Long id){
 		return this.profesorService.findOne(id);
 		

@@ -14,7 +14,7 @@ import com.prosubject.prosubject.backend.apirest.service.UniversidadService;
 
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/universidades")
 @CrossOrigin(origins = {"http://localhost:4200"})
 public class UniversidadController {
 
@@ -22,12 +22,12 @@ public class UniversidadController {
 	@Autowired
 	private UniversidadService universidadService;
 	
-	@GetMapping("/universidades")
+	@GetMapping("")
 	public List<Universidad> findAll(){
 		return this.universidadService.findAll();
 	}
 	
-	@GetMapping("/universidades/{id}")
+	@GetMapping("/{id}")
 	public Universidad findOne(@PathVariable Long id){
 		return this.universidadService.findOne(id);
 	}
