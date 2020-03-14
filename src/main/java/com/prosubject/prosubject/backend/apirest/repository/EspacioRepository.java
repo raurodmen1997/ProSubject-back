@@ -15,7 +15,7 @@ public interface EspacioRepository extends JpaRepository<Espacio, Long> {
 			+ "inner join asig.grados gra "
 			+ "inner join gra.facultad facul "
 			+ "inner join facul.universidad uni "
-			+ "where uni.nombre=?1 AND facul.nombre=?2 AND cur.nombre=?3 AND asig.nombre=?4")
+			+ "where e.capacidad > e.alumnos.size AND uni.nombre=?1 AND facul.nombre=?2 AND cur.nombre=?3 AND asig.nombre=?4")
 	List<Espacio> findDisponibles(String universidad, String facultad, String curso, String asignatura);
 	
 	

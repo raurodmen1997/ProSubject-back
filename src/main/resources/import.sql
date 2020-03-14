@@ -1,13 +1,13 @@
-INSERT INTO `useraccounts` (`password`,`username`) VALUES ('admin','admin');
-INSERT INTO `useraccounts` (`password`,`username`) VALUES ('alum1','alum1');
-INSERT INTO `useraccounts` (`password`,`username`) VALUES ('alum2','alum2');
-INSERT INTO `useraccounts` (`password`,`username`) VALUES ('alum3','alum3');
-INSERT INTO `useraccounts` (`password`,`username`) VALUES ('alum4','alum4');
-INSERT INTO `useraccounts` (`password`,`username`) VALUES ('prof1','prof1');
-INSERT INTO `useraccounts` (`password`,`username`) VALUES ('prof2','prof2');
-INSERT INTO `useraccounts` (`password`,`username`) VALUES ('prof3','prof3');
-INSERT INTO `useraccounts` (`password`,`username`) VALUES ('admin2','admin2');
-INSERT INTO `useraccounts` (`password`,`username`) VALUES ('admin3','admin3');
+INSERT INTO `useraccounts` (`password`,`username`,`autoridad`) VALUES ('admin','admin','1');
+INSERT INTO `useraccounts` (`password`,`username`,`autoridad`) VALUES ('alum1','alum1','3');
+INSERT INTO `useraccounts` (`password`,`username`,`autoridad`) VALUES ('alum2','alum2','3');
+INSERT INTO `useraccounts` (`password`,`username`,`autoridad`) VALUES ('alum3','alum3','3');
+INSERT INTO `useraccounts` (`password`,`username`,`autoridad`) VALUES ('alum4','alum4','3');
+INSERT INTO `useraccounts` (`password`,`username`,`autoridad`) VALUES ('prof1','prof1','2');
+INSERT INTO `useraccounts` (`password`,`username`,`autoridad`) VALUES ('prof2','prof2','2');
+INSERT INTO `useraccounts` (`password`,`username`,`autoridad`) VALUES ('prof3','prof3','2');
+INSERT INTO `useraccounts` (`password`,`username`,`autoridad`) VALUES ('admin2','admin2','1');
+INSERT INTO `useraccounts` (`password`,`username`,`autoridad`) VALUES ('admin3','admin3','1');
 
 
 INSERT INTO `administradores` (`apellido1`, `apellido2`, `dni`, `email`, `nombre`, `telefono`, `useraccount_id`) VALUES ('Romero', 'Caceres', '4754620Y', 'antromcac@alum.us.es', 'Antonio', '603552741', '1');

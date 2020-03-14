@@ -24,12 +24,10 @@ private static final long serialVersionUID = 1L;
 
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
-	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
 	private Date fechaInicio;
 	
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
-	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
 	private Date fechaFin;
 	
 	@NotNull
