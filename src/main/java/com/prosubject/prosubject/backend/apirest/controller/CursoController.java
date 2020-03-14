@@ -13,11 +13,15 @@ import com.prosubject.prosubject.backend.apirest.model.Curso;
 import com.prosubject.prosubject.backend.apirest.service.CursoService;
 
 @RestController
-
+<<<<<<< HEAD:src/main/java/com/prosubject/prosubject/backend/apirest/controller/CursoController.java
+@RequestMapping("/curso")
+public class CursoController {
+=======
 @RequestMapping("/api")
 @CrossOrigin(origins = {"http://localhost:4200"})
 public class CursoController {
 
+>>>>>>> a7607416cc91cbacd68263836099ee5737ab867c:src/main/java/com/prosubject/prosubject/backend/apirest/controller/cursoController.java
 	
 	@Autowired
 	private CursoService cursoService;
