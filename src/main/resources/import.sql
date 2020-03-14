@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 INSERT INTO `useraccounts` (`password`,`username`) VALUES ('admin','admin');
 INSERT INTO `useraccounts` (`password`,`username`) VALUES ('alum1','alum1');
 INSERT INTO `useraccounts` (`password`,`username`) VALUES ('alum2','alum2');
@@ -218,4 +218,4 @@ INSERT INTO `espacios_horarios` (`espacios_id`,`horarios_id`) VALUES ('2','3');
 
 
 
->>>>>>> a7607416cc91cbacd68263836099ee5737ab867c
+
