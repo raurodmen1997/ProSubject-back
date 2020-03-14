@@ -12,7 +12,7 @@ import com.prosubject.prosubject.backend.apirest.repository.UniversidadRepositor
 
 @RestController
 @RequestMapping("/universidad")
-public class universidadController {
+public class UniversidadController {
 	
 	@Autowired
 	private UniversidadRepository universidadRepository;
