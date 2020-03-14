@@ -10,9 +10,7 @@ import org.springframework.util.Assert;
 import com.prosubject.prosubject.backend.apirest.model.Alumno;
 import com.prosubject.prosubject.backend.apirest.model.Espacio;
 import com.prosubject.prosubject.backend.apirest.model.Foro;
-import com.prosubject.prosubject.backend.apirest.model.Grado;
 import com.prosubject.prosubject.backend.apirest.repository.EspacioRepository;
-import com.prosubject.prosubject.backend.apirest.repository.ForoRepository;
 
 @Service
 public class EspacioService {
