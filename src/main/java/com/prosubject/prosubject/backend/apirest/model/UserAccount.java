@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 
 
@@ -31,6 +32,7 @@ public class UserAccount implements Serializable {
 	
 	@NotBlank
 	@NotNull
+	@Pattern(regexp="^(?=.*\\p{L}.*){1,}(?=.*\\p{N}.*){1,}(?=.*[\\p{P}].*){1,}[\\p{L}\\p{N}\\p{P}]{10,}$",message=" La password debe incluir 1 letra, 1 número, 1 simbolo de puntuación y ser de tamaño 10 ")
 	private String password;
 
 	

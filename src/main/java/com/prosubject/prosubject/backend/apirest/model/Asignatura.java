@@ -44,14 +44,6 @@ public class Asignatura implements Serializable{
 	@ManyToMany
 	private Collection<Grado> grados;
 	
-	/*
-	@Valid
-	@ManyToOne(optional = false)
-	@JoinColumn(name = "universidad_id")
-	private Universidad universidad;
-	*/
-
-	
 	
 	public String getNombre() {
 		return nombre;
