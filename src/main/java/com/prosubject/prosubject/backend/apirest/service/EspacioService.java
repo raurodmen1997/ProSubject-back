@@ -8,12 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
+import com.prosubject.prosubject.backend.apirest.controller.HorarioController;
 import com.prosubject.prosubject.backend.apirest.model.Alumno;
+import com.prosubject.prosubject.backend.apirest.model.Asignatura;
 import com.prosubject.prosubject.backend.apirest.model.Espacio;
 import com.prosubject.prosubject.backend.apirest.model.Foro;
-
 import com.prosubject.prosubject.backend.apirest.model.Horario;
-
+import com.prosubject.prosubject.backend.apirest.model.Profesor;
 import com.prosubject.prosubject.backend.apirest.repository.EspacioRepository;
 
 @Service
@@ -26,8 +27,10 @@ public class EspacioService {
 	private AlumnoService alumnoService;
 	@Autowired
 	private HorarioService horarioService;
-	
-	
+	@Autowired
+	private AsignaturaService asignaturaService;
+	@Autowired
+	private ProfesorService profesorService;
 	public List<Espacio> findAll() {
 		return this.espacioRepository.findAll();
 	}
@@ -41,12 +44,18 @@ public class EspacioService {
 		return this.espacioRepository.findById(espacioId).orElse(null);
 	}
 	
-	public Espacio save(final Espacio e) throws Exception {
+public Espacio save(final Espacio e) throws Exception {
 		
 		
 		if(e.getId()==null) {
 			
 			Collection<Alumno> alumnos =new HashSet<Alumno>();
+			Asignatura a = new Asignatura();
+			a = this.asignaturaService.findOne(e.getAsignatura().getId());
+			
+			Profesor p = new Profesor();
+			p = this.profesorService.findOne(e.getProfesor().getId());
+			
 			Foro f = null ;
 			f.setTitulo("Foro "+e.getAsignatura().getNombre());			
 			Foro fSaved= this.foroService.save(f);
@@ -63,13 +72,14 @@ public class EspacioService {
 			e.setHorarios(horariosGuardados);
 			e.setForo(fSaved);
 			e.setAlumnos(alumnos);
+			e.setAsignatura(a);
+			e.setProfesor(p);
 			
 		}
 		Assert.isTrue(e.getCapacidad()>=e.getAlumnos().size());
 		return this.espacioRepository.save(e);
+}
 		
-		
-	}
 	//Metodo para inscribir un alumno en un espacio
 	public Espacio añadirAlumno(final long alumnoId , final long espacioId) throws Exception{
 		Alumno a = this.alumnoService.findOne(alumnoId);
