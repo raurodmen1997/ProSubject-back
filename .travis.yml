@@ -1,8 +1,14 @@
 languaje: java
 
+jdk:
+-openjdk8
+-openjdk10
+
 
 before_install:
-- chmod +x mvnw  
+- chmod +x mvnw 
+
+script: ./mvnw clean install 
 
 on:
     branch: master
