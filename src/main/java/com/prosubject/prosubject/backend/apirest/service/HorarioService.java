@@ -2,11 +2,9 @@ package com.prosubject.prosubject.backend.apirest.service;
 import java.util.Date;
 import java.util.List;
 
-
-
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.stereotype.Service;
+
 import com.prosubject.prosubject.backend.apirest.model.Horario;
 import com.prosubject.prosubject.backend.apirest.repository.HorarioRepository;
 
@@ -27,7 +25,7 @@ public class HorarioService {
 	}
 	
 	public Horario findOne(final long horarioId) {
-		return this.horarioRepository.findById(horarioId).get();
+		return this.horarioRepository.findById(horarioId).orElse(null);
 	}
 	
 	private boolean checkHoraInicioValid(Horario horario) throws Exception {

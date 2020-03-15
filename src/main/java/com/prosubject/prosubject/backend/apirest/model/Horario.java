@@ -2,6 +2,7 @@ package com.prosubject.prosubject.backend.apirest.model;
 
 import java.io.Serializable;
 import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,7 +11,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
-import org.springframework.format.annotation.DateTimeFormat;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity(name = "horario")
 public class Horario implements Serializable{
@@ -23,11 +24,13 @@ private static final long serialVersionUID = 1L;
 	private Long id;
 
 	@NotNull
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.TIME)
+	@JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
 	private Date fechaInicio;
 	
 	@NotNull
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.TIME)
+	@JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
 	private Date fechaFin;
 	
 	@NotNull
