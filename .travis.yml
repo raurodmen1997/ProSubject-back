@@ -1,4 +1,4 @@
 languaje: java
 jdk:
-- openjdk10
+- openjdk8
 
