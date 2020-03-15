@@ -11,54 +11,45 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.prosubject.prosubject.backend.apirest.model.Horario;
-import com.prosubject.prosubject.backend.apirest.service.HorarioService;
+
+import com.prosubject.prosubject.backend.apirest.model.Alumno;
+import com.prosubject.prosubject.backend.apirest.service.AlumnoService;
 
 @RestController
-@RequestMapping("/api/horarios")
+@RequestMapping("/api/alumnos")
 @CrossOrigin(origins = {"http://localhost:4200"})
-public class HorarioController{
+public class AlumnoController {
 	
 	@Autowired
-	private HorarioService horarioService;
+	private AlumnoService alumnoService;
 	
-
 	@GetMapping("")
-	public List<Horario> findAll(){
-		return this.horarioService.findAll();
+	public List<Alumno> findAll(){
+		return this.alumnoService.findAll();
 	}
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<?> findOne(@PathVariable Long id) {
-		Horario horario = null;
+		Alumno alumno = null;
 		Map<String, Object> response = new HashMap<String, Object>();
 		
 		try {
-			horario = this.horarioService.findOne(id);
+			alumno = this.alumnoService.findOne(id);
 		}catch(DataAccessException e) {
 			response.put("mensaje", "Error al realizar la consulta en la base de datos");
 			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR); 
 		}
 		
-		if(horario == null) {
-			response.put("mensaje",	 "El horario con ID: ".concat(id.toString()).concat(" no existe"));
+		if(alumno == null) {
+			response.put("mensaje",	 "El alumno con ID: ".concat(id.toString()).concat(" no existe"));
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND); 
 		}
 		
-		return new ResponseEntity<Horario>(horario, HttpStatus.OK);
+		return new ResponseEntity<Alumno>(alumno, HttpStatus.OK);
+		
 	}
-	
-	@PostMapping("")
-	public Horario crearHorario(@RequestBody Horario horario ) throws Exception {
-		horario = horarioService.save(horario);
-		return horario;
-	}
-
-
 
 }

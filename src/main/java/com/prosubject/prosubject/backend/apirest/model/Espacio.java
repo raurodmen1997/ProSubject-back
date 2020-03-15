@@ -31,7 +31,7 @@ public class Espacio implements Serializable {
 	
 	
 	@Valid
-	@OneToOne(optional = false)
+	@ManyToOne(optional = false)
 	@JoinColumn(name = "asignatura_id")
 	private Asignatura asignatura;
 	
@@ -59,7 +59,6 @@ public class Espacio implements Serializable {
 	@Valid
 	@ManyToMany
 	private Collection<Horario> horarios;
-	
 
 	public Long getId() {
 		return id;
@@ -127,7 +126,15 @@ public class Espacio implements Serializable {
 	}
 	
 	
+	public Collection<Horario> getHorarios() {
+		return horarios;
+	}
+
+	public void setHorarios(Collection<Horario> horarios) {
+		this.horarios = horarios;
+	}
 	
+
 	
 	
 	

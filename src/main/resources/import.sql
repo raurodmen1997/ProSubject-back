@@ -1,24 +1,13 @@
-INSERT INTO `user` (`active`,`password`,`roles`,`user_name`) VALUES (0b1,'admin','ADMIN','admin');
-INSERT INTO `user` (`active`,`password`,`roles`,`user_name`) VALUES (0b1,'alum1','USER','alum1');
-INSERT INTO `user` (`active`,`password`,`roles`,`user_name`) VALUES (0b1,'alum2','USER','alum2');
-INSERT INTO `user` (`active`,`password`,`roles`,`user_name`) VALUES (0b1,'alum3','USER','alum3');
-INSERT INTO `user` (`active`,`password`,`roles`,`user_name`) VALUES (0b1,'alum4','USER','alum4');
-INSERT INTO `user` (`active`,`password`,`roles`,`user_name`) VALUES (0b1,'prof1','USER','prof1');
-INSERT INTO `user` (`active`,`password`,`roles`,`user_name`) VALUES (0b1,'prof2','USER','prof2');
-INSERT INTO `user` (`active`,`password`,`roles`,`user_name`) VALUES (0b1,'prof3','USER','prof3');
-INSERT INTO `user` (`active`,`password`,`roles`,`user_name`) VALUES (0b1,'admin2','ADMIN','admin2');
-INSERT INTO `user` (`active`,`password`,`roles`,`user_name`) VALUES (0b1,'admin3','ADMIN','admin3');
-
-INSERT INTO `useraccounts` (`password`,`username`) VALUES ('admin','admin');
-INSERT INTO `useraccounts` (`password`,`username`) VALUES ('alum1','alum1');
-INSERT INTO `useraccounts` (`password`,`username`) VALUES ('alum2','alum2');
-INSERT INTO `useraccounts` (`password`,`username`) VALUES ('alum3','alum3');
-INSERT INTO `useraccounts` (`password`,`username`) VALUES ('alum4','alum4');
-INSERT INTO `useraccounts` (`password`,`username`) VALUES ('prof1','prof1');
-INSERT INTO `useraccounts` (`password`,`username`) VALUES ('prof2','prof2');
-INSERT INTO `useraccounts` (`password`,`username`) VALUES ('prof3','prof3');
-INSERT INTO `useraccounts` (`password`,`username`) VALUES ('admin2','admin2');
-INSERT INTO `useraccounts` (`password`,`username`) VALUES ('admin3','admin3');
+INSERT INTO `useraccounts` (`password`,`username`,`autoridad`) VALUES ('admin','admin','0');
+INSERT INTO `useraccounts` (`password`,`username`,`autoridad`) VALUES ('alum1','alum1','2');
+INSERT INTO `useraccounts` (`password`,`username`,`autoridad`) VALUES ('alum2','alum2','2');
+INSERT INTO `useraccounts` (`password`,`username`,`autoridad`) VALUES ('alum3','alum3','2');
+INSERT INTO `useraccounts` (`password`,`username`,`autoridad`) VALUES ('alum4','alum4','2');
+INSERT INTO `useraccounts` (`password`,`username`,`autoridad`) VALUES ('prof1','prof1','1');
+INSERT INTO `useraccounts` (`password`,`username`,`autoridad`) VALUES ('prof2','prof2','1');
+INSERT INTO `useraccounts` (`password`,`username`,`autoridad`) VALUES ('prof3','prof3','1');
+INSERT INTO `useraccounts` (`password`,`username`,`autoridad`) VALUES ('admin2','admin2','0');
+INSERT INTO `useraccounts` (`password`,`username`,`autoridad`) VALUES ('admin3','admin3','0');
 
 
 INSERT INTO `administradores` (`apellido1`, `apellido2`, `dni`, `email`, `nombre`, `telefono`, `useraccount_id`) VALUES ('Romero', 'Caceres', '4754620Y', 'antromcac@alum.us.es', 'Antonio', '603552741', '1');
@@ -94,11 +83,11 @@ INSERT INTO `espacios_alumnos` (`espacios_id`, `alumnos_id`) VALUES ('1', '1');
 INSERT INTO `espacios_alumnos` (`espacios_id`, `alumnos_id`) VALUES ('1', '2');
 INSERT INTO `espacios_alumnos` (`espacios_id`, `alumnos_id`) VALUES ('2', '3');
 
-INSERT INTO `horario` (`fecha_inicio`,`fecha_fin`) VALUES ('2020-03-12','2020-03-14');
+INSERT INTO `horario` (`dia`,`fecha_inicio`,`fecha_fin`) VALUES ('4','11:00:00','12:00:00');
 
-INSERT INTO `horario` (`fecha_inicio`,`fecha_fin`) VALUES ('2020-03-13','2020-03-14');
+INSERT INTO `horario` (`dia`,`fecha_inicio`,`fecha_fin`)  VALUES ('5','12:00:00','13:00:00');
 
-INSERT INTO `horario` (`fecha_inicio`,`fecha_fin`) VALUES ('2020-03-13','2020-03-17');
+INSERT INTO `horario` (`dia`,`fecha_inicio`,`fecha_fin`)  VALUES ('5','15:00:00','16:00:00');
 
 INSERT INTO `espacios_horarios` (`espacios_id`,`horarios_id`) VALUES ('1','1');
 

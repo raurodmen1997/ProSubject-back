@@ -1,8 +1,13 @@
 package com.prosubject.prosubject.backend.apirest.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,7 +18,7 @@ import com.prosubject.prosubject.backend.apirest.model.Profesor;
 import com.prosubject.prosubject.backend.apirest.service.ProfesorService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/profesores")
 @CrossOrigin(origins = {"http://localhost:4200"})
 public class ProfesorController {
 
@@ -21,15 +26,31 @@ public class ProfesorController {
 	@Autowired
 	private ProfesorService profesorService;
 	
-	@GetMapping("/profesores")
+	@GetMapping("")
 	public List<Profesor> findAll(){
 		return this.profesorService.findAll();
 		
 	}
 	
-	@GetMapping("/profesores/{id}")
-	public Profesor findOne(@PathVariable Long id){
-		return this.profesorService.findOne(id);
+	@GetMapping("/{id}")
+	public ResponseEntity<?> findOne(@PathVariable Long id){
+		Profesor profesor = null;
+		Map<String, Object> response = new HashMap<String, Object>();
+		
+		try {
+			profesor = this.profesorService.findOne(id);
+		}catch(DataAccessException e) {
+			response.put("mensaje", "Error al realizar la consulta en la base de datos");
+			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
+			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR); 
+		}
+		
+		if(profesor == null) {
+			response.put("mensaje",	 "El profesor con ID: ".concat(id.toString()).concat(" no existe"));
+			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND); 
+		}
+		
+		return new ResponseEntity<Profesor>(profesor, HttpStatus.OK);
 		
 	}
 }

@@ -50,7 +50,8 @@ public class Administrador implements Serializable {
 	
 	@NotBlank
 	@NotNull
-	@Pattern(regexp = "^(\\d{8})?([-])?([A-Z])$")
+	@Pattern(regexp = "^(\\d{8})([A-Z])$",message = "Debe tener 8 numeros y 1 letra")
+	@Column(unique = true)
 	private String dni;
 	
 	@NotBlank
@@ -58,8 +59,8 @@ public class Administrador implements Serializable {
 	@Email
 	@Column(unique = true)
 	private String email;
-	
-	@Pattern(regexp="^([+][1-9]\\d{0,3})?([ ])?([(][1-9]\\d{0,4}[)])?([ ])?\\d{6,10}$")
+
+	@Pattern(regexp="^([+][1-9]\\d{0,3})?([ ])?([(][1-9]\\d{0,4}[)])?([ ])?\\d{6,10}|^$",message = "Debe introducir un numero de telefono correcto")
 	private String telefono;
 	
 
