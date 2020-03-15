@@ -1,7 +1,6 @@
 dist: precise
 languaje: java
 jdk: 
-- openjdk8
 - openjdk10
 services:
 - mysql
