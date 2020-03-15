@@ -1,11 +1,7 @@
-
 languaje: java
 jdk:
 - openjdk8
 - openjdk10
-
-services:
-- mysql
 
 before_install:
 - chmod +x mvnw
