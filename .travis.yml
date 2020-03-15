@@ -1,3 +1,4 @@
+
 languaje: java
 jdk:
 - openjdk8
@@ -8,6 +9,9 @@ services:
 
 before_install:
 - chmod +x mvnw
+  
+on:
+    branch: master
 
 
 
