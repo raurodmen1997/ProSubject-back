@@ -1,14 +1,9 @@
 languaje: java
-
 jdk: 
--openjdk8
--openjk10
-
+-oraclejdk8
+-oraclejk10
 before_install:
 - chmod +x mvnw 
-
-
-
 on:
     branch: master
 
