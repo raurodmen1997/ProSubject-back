@@ -1,4 +1,8 @@
 languaje: java
+
+script:
+./mvnw install -DskipTests=false -Dmaven.javadoc.skip=true -B -V
+./mvnw test -B
   
 on:
     branch: master
