@@ -1,10 +1,4 @@
 languaje: java
-jdk:
-- openjdk8
-- openjdk10
-
-before_install:
-- chmod +x mvnw
   
 on:
     branch: master
