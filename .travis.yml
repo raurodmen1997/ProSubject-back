@@ -1,3 +1,4 @@
+dist: precise
 languaje: java
 jdk: 
 - openjdk8
