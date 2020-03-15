@@ -1,4 +1,5 @@
 languaje: java
 jdk:
 - openjdk8
-scripts: ./mvnw clean install
+- openjdk10
+
