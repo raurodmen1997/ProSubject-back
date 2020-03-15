@@ -1,6 +1,8 @@
 languaje: java
 
-
+jdk: 
+-openjdk8
+-openjk10
 
 before_install:
 - chmod +x mvnw 
