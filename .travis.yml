@@ -2,6 +2,8 @@ languaje: java
 jdk: 
 - openjdk8
 - openjdk10
+services:
+- mysql
 install:
 - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 before_install:
