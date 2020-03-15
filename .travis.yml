@@ -3,5 +3,11 @@ jdk:
 - openjdk8
 - openjdk10
 
+services:
+- mysql
+
 before_install:
 - chmod +x mvnw
+- mysql -e 'CREATE DATABASE myapp_test;'
+
+
