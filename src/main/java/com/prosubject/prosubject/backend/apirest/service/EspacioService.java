@@ -1,7 +1,10 @@
 package com.prosubject.prosubject.backend.apirest.service;
 
+
 import java.util.Collection;
 import java.util.HashSet;
+
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +34,8 @@ public class EspacioService {
 	private AsignaturaService asignaturaService;
 	@Autowired
 	private ProfesorService profesorService;
+	
+	
 	public List<Espacio> findAll() {
 		return this.espacioRepository.findAll();
 	}
@@ -44,7 +49,8 @@ public class EspacioService {
 		return this.espacioRepository.findById(espacioId).orElse(null);
 	}
 	
-public Espacio save(final Espacio e) throws Exception {
+	
+	public Espacio save(final Espacio e) throws Exception {
 		
 		
 		if(e.getId()==null) {
@@ -76,7 +82,8 @@ public Espacio save(final Espacio e) throws Exception {
 }
 		
 	//Metodo para inscribir un alumno en un espacio
-	public Espacio añadirAlumno(final long alumnoId , final long espacioId) throws Exception{
+	public Espacio añadirAlumno(Long espacioId, Long alumnoId) throws Exception{
+		/*
 		Alumno a = this.alumnoService.findOne(alumnoId);
 		Espacio e = this.findOne(espacioId);
 		Collection<Alumno> alumnos = e.getAlumnos();
@@ -87,7 +94,11 @@ public Espacio save(final Espacio e) throws Exception {
 		this.save(e);
 		
 		return e;
-		
+		*/
+		Alumno alumno = this.alumnoService.findOne(alumnoId);
+		Espacio espacio = this.findOne(espacioId);
+		espacio.getAlumnos().add(alumno);
+		return this.save(espacio);
 	}
 	
 	//Listado de espacios creados por un profesor
