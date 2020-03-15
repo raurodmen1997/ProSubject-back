@@ -4,8 +4,7 @@ jdk:
 - openjdk10
 before_install:
 - chmod +x mvnw 
-script:
-./mvnw clean compile package 
+script: ./mvnw clean compile package 
 on:
     branch: master
 
