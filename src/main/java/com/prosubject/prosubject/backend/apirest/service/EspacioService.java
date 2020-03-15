@@ -50,18 +50,13 @@ public Espacio save(final Espacio e) throws Exception {
 		if(e.getId()==null) {
 			
 			Collection<Alumno> alumnos =new HashSet<Alumno>();
-			Asignatura a = new Asignatura();
-			a = this.asignaturaService.findOne(e.getAsignatura().getId());
 			
-			Profesor p = new Profesor();
-			p = this.profesorService.findOne(e.getProfesor().getId());
-			
-			Foro f = null ;
+			Foro f = new Foro();
 			f.setTitulo("Foro "+e.getAsignatura().getNombre());			
 			Foro fSaved= this.foroService.save(f);
 			
 			Collection<Horario> horarios = e.getHorarios();
-			Collection<Horario> horariosGuardados = null;
+			Collection<Horario> horariosGuardados =  new HashSet<Horario>();
 			
 			for (Horario horario : horarios) {
 				
@@ -72,11 +67,11 @@ public Espacio save(final Espacio e) throws Exception {
 			e.setHorarios(horariosGuardados);
 			e.setForo(fSaved);
 			e.setAlumnos(alumnos);
-			e.setAsignatura(a);
-			e.setProfesor(p);
+
 			
 		}
-		Assert.isTrue(e.getCapacidad()>=e.getAlumnos().size());
+		
+		
 		return this.espacioRepository.save(e);
 }
 		
