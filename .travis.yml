@@ -1,9 +1,9 @@
 languaje: java
 
-script:
-./mvnw install -DskipTests=false -Dmaven.javadoc.skip=true -B -V
-./mvnw test -B
-  
+
+before_install:
+- chmod +x mvnw  
+
 on:
     branch: master
 
