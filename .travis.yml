@@ -9,6 +9,8 @@ install:
 before_install:
 - chmod +x mvnw 
 script: mvn clean compile package 
+before_script:
+  - echo "USE mysql;\nUPDATE user SET password=PASSWORD('sasa') WHERE user='root';\nFLUSH PRIVILEGES;\n" | mysql -u root
 on:
     branch: master
 
