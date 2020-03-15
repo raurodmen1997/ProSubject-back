@@ -32,7 +32,7 @@ public class Espacio implements Serializable {
 	
 	
 	@Valid
-	@OneToOne(optional = false)
+	@ManyToOne(optional = false)
 	@JoinColumn(name = "asignatura_id")
 	private Asignatura asignatura;
 	
