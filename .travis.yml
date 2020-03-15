@@ -2,9 +2,11 @@ languaje: java
 jdk: 
 - openjdk8
 - openjdk10
+install:
+- ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 before_install:
 - chmod +x mvnw 
-script: ./mvnw clean compile package 
+script: mvn clean compile package 
 on:
     branch: master
 
