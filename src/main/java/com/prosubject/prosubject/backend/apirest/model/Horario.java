@@ -11,6 +11,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity(name = "horario")
@@ -25,12 +27,12 @@ private static final long serialVersionUID = 1L;
 
 	@NotNull
 	@Temporal(TemporalType.TIME)
-	@JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
+	@DateTimeFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
 	private Date fechaInicio;
 	
 	@NotNull
 	@Temporal(TemporalType.TIME)
-	@JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
+	@DateTimeFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
 	private Date fechaFin;
 	
 	@NotNull

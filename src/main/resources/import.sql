@@ -83,11 +83,11 @@ INSERT INTO `espacios_alumnos` (`espacios_id`, `alumnos_id`) VALUES ('1', '1');
 INSERT INTO `espacios_alumnos` (`espacios_id`, `alumnos_id`) VALUES ('1', '2');
 INSERT INTO `espacios_alumnos` (`espacios_id`, `alumnos_id`) VALUES ('2', '3');
 
-INSERT INTO `horario` (`dia`,`fecha_inicio`,`fecha_fin`) VALUES ('4','2049-12-31T11:00:00.000Z','2049-12-31T12:00:00.000Z');
+INSERT INTO `horario` (`dia`,`fecha_inicio`,`fecha_fin`) VALUES ('4','11:00:00','12:00:00');
 
-INSERT INTO `horario` (`dia`,`fecha_inicio`,`fecha_fin`)  VALUES ('5','2049-12-31T12:00:00.000Z','2049-12-31T13:00:00.000Z');
+INSERT INTO `horario` (`dia`,`fecha_inicio`,`fecha_fin`)  VALUES ('5','12:00:00','13:00:00');
 
-INSERT INTO `horario` (`dia`,`fecha_inicio`,`fecha_fin`)  VALUES ('5','2049-12-31T15:00:00.000Z','2049-12-31T16:00:00.000Z');
+INSERT INTO `horario` (`dia`,`fecha_inicio`,`fecha_fin`)  VALUES ('5','15:00:00','16:00:00');
 
 INSERT INTO `espacios_horarios` (`espacios_id`,`horarios_id`) VALUES ('1','1');
 
