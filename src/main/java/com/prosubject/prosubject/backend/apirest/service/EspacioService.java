@@ -42,15 +42,11 @@ public class EspacioService {
 		
 		if(e.getId()==null) {
 			
-			Collection<Alumno> alumnos =new HashSet<Alumno>();
-			
 			Foro f = new Foro();
 			f.setTitulo("Foro "+e.getAsignatura().getNombre());			
 			Foro fSaved= this.foroService.save(f);
 			
 			e.setForo(fSaved);
-			e.setAlumnos(alumnos);
-
 			
 		}
 		
@@ -59,24 +55,24 @@ public class EspacioService {
 }
 		
 	//Metodo para inscribir un alumno en un espacio
-	public Espacio añadirAlumno(Long espacioId, Long alumnoId) throws Exception{
-		/*
-		Alumno a = this.alumnoService.findOne(alumnoId);
-		Espacio e = this.findOne(espacioId);
-		Collection<Alumno> alumnos = e.getAlumnos();
-		Assert.isTrue(!(alumnos.contains(a)));
-		Assert.isTrue(e.getCapacidad()>e.getAlumnos().size());
-		alumnos.add(a);
-		e.setAlumnos(alumnos);
-		this.save(e);
-		
-		return e;
-		*/
-		Alumno alumno = this.alumnoService.findOne(alumnoId);
-		Espacio espacio = this.findOne(espacioId);
-		espacio.getAlumnos().add(alumno);
-		return this.save(espacio);
-	}
+//	public Espacio añadirAlumno(Long espacioId, Long alumnoId) throws Exception{
+//		/*
+//		Alumno a = this.alumnoService.findOne(alumnoId);
+//		Espacio e = this.findOne(espacioId);
+//		Collection<Alumno> alumnos = e.getAlumnos();
+//		Assert.isTrue(!(alumnos.contains(a)));
+//		Assert.isTrue(e.getCapacidad()>e.getAlumnos().size());
+//		alumnos.add(a);
+//		e.setAlumnos(alumnos);
+//		this.save(e);
+//		
+//		return e;
+//		*/
+//		Alumno alumno = this.alumnoService.findOne(alumnoId);
+//		Espacio espacio = this.findOne(espacioId);
+//	//	espacio.getAlumnos().add(alumno);
+//		return this.save(espacio);
+//	}
 	
 	//Listado de espacios creados por un profesor
 	public List<Espacio> espaciosDeUnProfesor(Long id){
@@ -84,9 +80,10 @@ public class EspacioService {
 	}
 	
 	//Listado de espacios en los que estas inscrito un alumno
-		public List<Espacio> espaciosDeUnAlumno(Long id){
-			return this.espacioRepository.espaciosDeUnAlumno(id);
-		}
+	//Jesus:Metodo comentado debiado al cambio en el modelo
+//		public List<Espacio> espaciosDeUnAlumno(Long id){
+//			return this.espacioRepository.espaciosDeUnAlumno(id);
+//		}
 	
 	
 	

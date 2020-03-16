@@ -1,6 +1,7 @@
 package com.prosubject.prosubject.backend.apirest.model;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -8,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -28,6 +30,10 @@ private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@Valid
+	@ManyToMany
+	private Collection<Alumno> alumnos;
 
 	@NotNull
 	@Temporal(TemporalType.TIME)
@@ -91,6 +97,14 @@ private static final long serialVersionUID = 1L;
 
 	public void setDia(DiaSemana dia) {
 		this.dia = dia;
+	}
+	
+	public Collection<Alumno> getAlumnos() {
+		return alumnos;
+	}
+
+	public void setAlumnos(Collection<Alumno> alumnos) {
+		this.alumnos = alumnos;
 	}
 
 

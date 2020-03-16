@@ -26,9 +26,7 @@ public class Espacio implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Valid
-	@ManyToMany
-	private Collection<Alumno> alumnos;
+
 	
 	
 	@Valid
@@ -66,14 +64,6 @@ public class Espacio implements Serializable {
 	}
 
 	
-
-	public Collection<Alumno> getAlumnos() {
-		return alumnos;
-	}
-
-	public void setAlumnos(Collection<Alumno> alumnos) {
-		this.alumnos = alumnos;
-	}
 
 	public Asignatura getAsignatura() {
 		return asignatura;

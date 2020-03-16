@@ -1,11 +1,13 @@
 package com.prosubject.prosubject.backend.apirest.service;
 import java.util.Collection;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.prosubject.prosubject.backend.apirest.model.Alumno;
 import com.prosubject.prosubject.backend.apirest.model.Espacio;
 import com.prosubject.prosubject.backend.apirest.model.Horario;
 import com.prosubject.prosubject.backend.apirest.repository.HorarioRepository;
@@ -54,19 +56,28 @@ public class HorarioService {
 		Espacio eSaved = this.espacioService.save(e);
 		
 		for (Horario horario : h) {
+			Collection<Alumno> alumnos = new HashSet<Alumno>();
 			horario.setEspacio(eSaved);
+			horario.setAlumnos(alumnos);
 			
 			if(checkHoraInicioValid(horario)&& checkHoraFinValid(horario)) {
 				horario = this.horarioRepository.save(horario);
 			}
 			
 		}
-		
-		
-		
-		
-		
 	}
+		
+	
+		public List<Horario> horariosDeUnEspacio(long espacioId) {
+			return this.horarioRepository.horariosDeUnEspacio(espacioId);
+		}
+		
+	
+		
+		
+		
+		
+	
 
 	
 }
