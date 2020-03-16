@@ -80,10 +80,9 @@ public class EspacioService {
 	}
 	
 	//Listado de espacios en los que estas inscrito un alumno
-	//Jesus:Metodo comentado debiado al cambio en el modelo
-//		public List<Espacio> espaciosDeUnAlumno(Long id){
-//			return this.espacioRepository.espaciosDeUnAlumno(id);
-//		}
+		public List<Espacio> espaciosDeUnAlumno(Long id){
+			return this.espacioRepository.espaciosDeUnAlumno(id);
+		}
 	
 	
 	
