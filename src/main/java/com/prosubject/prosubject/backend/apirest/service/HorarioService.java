@@ -47,7 +47,7 @@ public class HorarioService {
 	private boolean checkHoraFinValid(Horario horario) throws Exception {
 		
 		if ( (!horario.getFechaFin().after(horario.getFechaInicio()))) {
-			throw new Exception("La fecha de inicio debe ser posterior a la fecha de inicio");
+			throw new Exception("La fecha de fin debe ser posterior a la fecha de inicio");
 		}
 		return true;
 	}
