@@ -1,5 +1,6 @@
 package com.prosubject.prosubject.backend.apirest.controller;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -55,9 +56,9 @@ public class HorarioController{
 	}
 	
 	@PostMapping("")
-	public Horario crearHorario(@RequestBody Horario horario ) throws Exception {
-		horario = horarioService.save(horario);
-		return horario;
+	public void crearHorario(@RequestBody Collection<Horario> horario ) throws Exception {
+		 horarioService.save(horario);
+		
 	}
 
 

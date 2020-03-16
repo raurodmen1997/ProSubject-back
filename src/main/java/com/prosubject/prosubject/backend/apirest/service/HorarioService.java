@@ -1,10 +1,12 @@
 package com.prosubject.prosubject.backend.apirest.service;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.prosubject.prosubject.backend.apirest.model.Espacio;
 import com.prosubject.prosubject.backend.apirest.model.Horario;
 import com.prosubject.prosubject.backend.apirest.repository.HorarioRepository;
 
@@ -13,6 +15,8 @@ import com.prosubject.prosubject.backend.apirest.repository.HorarioRepository;
 public class HorarioService {
 	@Autowired
 	private HorarioRepository horarioRepository;
+	@Autowired
+	private EspacioService espacioService;
 	
 	
 	public Horario create() {
@@ -44,12 +48,24 @@ public class HorarioService {
 		return true;
 	}
 
-	public Horario save(Horario a) throws Exception{
-		if(checkHoraInicioValid(a)&& checkHoraFinValid(a)) {
-			a = this.horarioRepository.save(a);
+	public void save(Collection<Horario> h) throws Exception{
+		
+		Espacio e = h.stream().findFirst().get().getEspacio();
+		Espacio eSaved = this.espacioService.save(e);
+		
+		for (Horario horario : h) {
+			horario.setEspacio(eSaved);
+			
+			if(checkHoraInicioValid(horario)&& checkHoraFinValid(horario)) {
+				horario = this.horarioRepository.save(horario);
+			}
+			
 		}
 		
-		return a;
+		
+		
+		
+		
 	}
 
 	
