@@ -100,7 +100,8 @@ class ProsubjectBackendApirestApplicationTests {
 			String facultad = "Escuela Técnica Superior de Ingeniería Informática";
 			String grado = "Ingeniería del Software";
 			String curso = "PRIMERO";
-			List<Espacio> res = espRep.findDisponibles(uni, facultad, grado, curso);
+			String asignatura ="Fundamentos de programación";
+			List<Espacio> res = espRep.findDisponibles(uni, facultad, grado, curso, asignatura);
 			assertThat(res).isNotNull();
 		
 		}
