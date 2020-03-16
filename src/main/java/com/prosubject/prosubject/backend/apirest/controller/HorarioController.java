@@ -18,9 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.prosubject.prosubject.backend.apirest.model.Alumno;
-import com.prosubject.prosubject.backend.apirest.model.Espacio;
 import com.prosubject.prosubject.backend.apirest.model.Horario;
 import com.prosubject.prosubject.backend.apirest.service.AlumnoService;
 import com.prosubject.prosubject.backend.apirest.service.HorarioService;
@@ -122,6 +120,29 @@ public class HorarioController{
 		}
 		
 		return new ResponseEntity<Horario>(horarioModificado, HttpStatus.OK);	
+	}
+	
+	
+	
+	@GetMapping("/{espacioId}/{alumnoId}")
+	public ResponseEntity<?> horariosDeAlumno(@PathVariable Long espacioId, @PathVariable Long alumnoId) throws Exception {
+		List<Horario> horarios = null;
+		Map<String, Object> response = new HashMap<String, Object>();
+		
+		try {
+		horarios = this.horarioService.horariosDeAlumno(espacioId, alumnoId);
+		}catch(DataAccessException e) {
+			response.put("mensaje", "Error al realizar la consulta en la base de datos");
+			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
+			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR); 
+		}
+		
+		if(horarios.isEmpty()) {
+			response.put("mensaje",	 "El alumno con ID: ".concat(alumnoId.toString()).concat(" no tiene horarios en ese espacio"));
+			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND); 
+		}
+		
+		return new ResponseEntity<List<Horario>>(horarios, HttpStatus.OK);
 	}
 
 
