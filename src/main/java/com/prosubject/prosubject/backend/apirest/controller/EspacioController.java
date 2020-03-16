@@ -95,40 +95,7 @@ public class EspacioController{
 		
 	}
 	
-	//Jesus:He comentado el if de los alumnos debido al cambio en el modelo. Tambien esta comentado el metodo del servicio
-//	@PutMapping("/insertarAlumno")
-//	public ResponseEntity<?> insertarAlumno(@RequestParam Long espacioId, @RequestParam Long alumnoId) throws Exception {
-//		Map<String, Object> response = new HashMap<String, Object>();
-//		Espacio espacioModificado = null;
-//		
-//		Espacio espacio = this.espacioService.findOne(espacioId);
-//		Alumno alumno = this.alumnoService.findOne(alumnoId);
-//		
-//		if(espacio == null) {
-//			response.put("mensaje",	 "El espacio con ID: ".concat(espacioId.toString()).concat(" no existe"));
-//			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND); 
-//		}
-//		
-//		if(alumno == null) {
-//			response.put("mensaje",	 "El alumno con ID: ".concat(alumnoId.toString()).concat(" no existe"));
-//			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND); 
-//		}
-//		
-////		if(espacio.getAlumnos().contains(alumno)) {
-////			response.put("mensaje",	 "El alumno ya se encuentra inscrito en el espacio.");
-////			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND); 
-////		}
-//		
-//		try {
-//			espacioModificado = this.espacioService.añadirAlumno(espacioId, alumnoId);	
-//		}catch(DataAccessException e) {
-//			response.put("mensaje", "Error al realizar la consulta en la base de datos");
-//			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
-//			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR); 
-//		}
-//		
-//		return new ResponseEntity<Espacio>(espacioModificado, HttpStatus.OK);	
-//	}
+	
 	
 	@GetMapping("/espaciosProfesor/{id}")
 	public ResponseEntity<?> espaciosDeUnProfesor(@PathVariable Long id) {
