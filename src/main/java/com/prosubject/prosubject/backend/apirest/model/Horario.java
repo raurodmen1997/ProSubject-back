@@ -39,7 +39,8 @@ private static final long serialVersionUID = 1L;
 	@Temporal(TemporalType.TIME)
 	@DateTimeFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
 	private Date fechaInicio;
-	
+
+
 	@NotNull
 	@Temporal(TemporalType.TIME)
 	@DateTimeFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
@@ -58,6 +59,14 @@ private static final long serialVersionUID = 1L;
 	private Long capacidad;
 
 
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public Long getCapacidad() {
 		return capacidad;
 	}

@@ -51,9 +51,10 @@ public class EspacioController{
 	@GetMapping("/espaciosDisponibles")
 	public List<Espacio> findDisponibles(@RequestParam(value="universidad") String universidad, 
 			@RequestParam(value="facultad") String facultad,
+			@RequestParam(value="grado") String grado,
 			@RequestParam(value="curso") String curso,
 			@RequestParam(value="asignatura") String asignatura){
-		return this.espacioService.findDisponibles(universidad, facultad, curso, asignatura);
+		return this.espacioService.findDisponibles(universidad, facultad, grado, curso, asignatura);
 	}
 		
 	@GetMapping("/{id}")
@@ -171,6 +172,11 @@ public class EspacioController{
 		}
 		
 		return new ResponseEntity<List<Espacio>>(espacios, HttpStatus.OK);	
+	}
+	
+	@GetMapping("/capacidad")
+	public List<Espacio> espaciosConCapacidad(){
+		return this.espacioService.espaciosConCapacidad();
 	}
 	
 	

@@ -80,7 +80,7 @@ INSERT INTO `espacios` (`asignatura_id`, `foro_id`, `profesor_id`, `precio`) VAL
 
 
 
-INSERT INTO `horario` (`dia`,`fecha_inicio`,`fecha_fin`,`espacio_id`, `capacidad`) VALUES ('4','11:00:00','12:00:00','1',10);
+INSERT INTO `horario` (`dia`,`fecha_inicio`,`fecha_fin`,`espacio_id`, `capacidad`) VALUES ('4','11:00:00','12:00:00','1',2);
 
 INSERT INTO `horario` (`dia`,`fecha_inicio`,`fecha_fin`,`espacio_id`, `capacidad`)  VALUES ('5','12:00:00','13:00:00','1',6);
 
@@ -88,7 +88,7 @@ INSERT INTO `horario` (`dia`,`fecha_inicio`,`fecha_fin`,`espacio_id`, `capacidad
 
 INSERT INTO `horario_alumnos` (`horario_id`, `alumnos_id`) VALUES ('1', '1');
 INSERT INTO `horario_alumnos` (`horario_id`, `alumnos_id`) VALUES ('1', '2');
-INSERT INTO `horario_alumnos` (`horario_id`, `alumnos_id`) VALUES ('2', '3');
+INSERT INTO `horario_alumnos` (`horario_id`, `alumnos_id`) VALUES ('3', '3');
 
 
 
