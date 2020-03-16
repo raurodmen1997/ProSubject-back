@@ -53,13 +53,8 @@ public class Espacio implements Serializable {
 	@Min(0)
 	private Double precio;
 	
-	@NotNull
-	@Min(0)
-	private Long capacidad;
 	
-	@Valid
-	@ManyToMany
-	private Collection<Horario> horarios;
+	
 
 
 	public Long getId() {
@@ -112,22 +107,10 @@ public class Espacio implements Serializable {
 		precio = prec;
 	}
 
-	public Long getCapacidad() {
-		return capacidad;
-	}
 
-	public void setCapacidad(Long capacidad) {
-		this.capacidad = capacidad;
-	}
 	
 	
-	public Collection<Horario> getHorarios() {
-		return horarios;
-	}
 
-	public void setHorarios(Collection<Horario> horarios) {
-		this.horarios = horarios;
-	}
 	
 
 	

@@ -7,8 +7,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -37,7 +41,32 @@ private static final long serialVersionUID = 1L;
 	
 	@NotNull
 	private DiaSemana dia;
+	
+	@Valid
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "espacio_id")
+	private Espacio espacio;
+	
+	@NotNull
+	@Min(0)
+	private Long capacidad;
 
+
+	public Long getCapacidad() {
+		return capacidad;
+	}
+
+	public void setCapacidad(Long capacidad) {
+		this.capacidad = capacidad;
+	}
+
+	public Espacio getEspacio() {
+		return espacio;
+	}
+
+	public void setEspacio(Espacio espacio) {
+		this.espacio = espacio;
+	}
 
 	public Date getFechaInicio() {
 		
