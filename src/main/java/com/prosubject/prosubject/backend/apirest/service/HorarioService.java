@@ -84,9 +84,9 @@ public class HorarioService {
 			return this.horarioRepository.save(horario);
 		}
 		
-		public List<Horario> horariosDeAlumno(Long espacioId, Long alumnoId) throws Exception{
+		public List<Horario> horariosDeAlumno(Long alumnoId) throws Exception{
 		
-			return this.horarioRepository.horariosDeAlumno(espacioId, alumnoId);
+			return this.horarioRepository.horariosDeAlumno(alumnoId);
 		}
 	
 		
