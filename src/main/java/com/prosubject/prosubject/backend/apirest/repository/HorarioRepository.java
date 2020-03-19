@@ -17,6 +17,9 @@ public interface HorarioRepository extends JpaRepository<Horario, Long>  {
 	@Query("select h from horario h join h.alumnos alum where alum.id=?1")
 	List<Horario> horariosDeAlumno(Long alumnoId);
 	
+	@Query("select h from horario h where h.espacio.profesor.id = ?1")
+	List<Horario> horariosDeProfesor(Long profesorId);
+	
 	
 
 }

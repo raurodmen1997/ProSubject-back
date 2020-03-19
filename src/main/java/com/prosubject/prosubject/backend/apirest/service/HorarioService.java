@@ -88,6 +88,10 @@ public class HorarioService {
 		
 			return this.horarioRepository.horariosDeAlumno(alumnoId);
 		}
+		
+		public List<Horario> horariosDeProfesor(Long profesorId) throws Exception{
+			return this.horarioRepository.horariosDeProfesor(profesorId);
+		}
 	
 		
 		

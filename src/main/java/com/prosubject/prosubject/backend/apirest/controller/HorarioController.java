@@ -158,6 +158,30 @@ public class HorarioController{
 		
 		return new ResponseEntity<List<Horario>>(horarios, HttpStatus.OK);
 	}
+	
+	
+	//CRISTIAN
+	@GetMapping("/profesor/{profesorId}")
+	public ResponseEntity<?> horariosDeProfesor(@PathVariable Long profesorId) throws Exception {
+		List<Horario> horarios = null;
+		Map<String, Object> response = new HashMap<String, Object>();
+		
+		try {
+		horarios = this.horarioService.horariosDeProfesor(profesorId);
+		}catch(DataAccessException e) {
+			response.put("mensaje", "Error al realizar la consulta en la base de datos");
+			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
+			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR); 
+		}
+		
+		if(horarios.isEmpty()) {
+			response.put("mensaje",	 "El profesor con ID: ".concat(profesorId.toString()).concat(" no tiene horarios en ese espacio"));
+			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND); 
+		}
+		
+		return new ResponseEntity<List<Horario>>(horarios, HttpStatus.OK);
+	}
+
 
 
 
