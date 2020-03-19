@@ -125,6 +125,11 @@ public class HorarioController{
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND); 
 		}
 		
+		if(horario.getCapacidad().equals((long)horario.getAlumnos().size())) {
+			response.put("mensaje",	 "El horario ya tiene aforo completo.");
+			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND); 
+		}
+		
 		try {
 			horarioModificado = this.horarioService.añadirAlumno(horarioId, alumnoId);	
 		}catch(DataAccessException e) {
